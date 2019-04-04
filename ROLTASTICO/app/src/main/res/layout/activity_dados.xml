@@ -5,30 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Principal" >
+    tools:context=".Dados">
 
     <Button
-        android:id="@+id/btnRw"
+        android:id="@+id/btn1d4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Rwby un" />
+        android:text="1d4"
+        android:onClick="rollDice"/>
 
     <Button
-        android:id="@+id/btnVO"
+        android:id="@+id/btn1d6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="VE Viejo Oeste" />
+        android:text="1d6"
+        android:onClick="rollDice"/>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn1d8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sistema 3" />
+        android:text="1d8"
+        android:onClick="rollDice"/>
 
     <Button
-        android:id="@+id/btnDice"
+        android:id="@+id/btn1d100"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dados" />
+        android:text="1d100"
+        android:onClick="rollDice"/>
 
+    <Button
+        android:id="@+id/btn1d20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1d20"
+        android:onClick="rollDice"/>
 </LinearLayout>
