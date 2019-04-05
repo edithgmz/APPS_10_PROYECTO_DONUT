@@ -11,24 +11,28 @@
         android:id="@+id/btnRw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Rwby un" />
+        android:text="Rwby un"
+        android:onClick="onClick"/>
 
     <Button
         android:id="@+id/btnVO"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="VE Viejo Oeste" />
+        android:text="VE Viejo Oeste"
+        android:onClick="onClick"/>
 
     <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sistema 3" />
+        android:text="Sistema 3"
+        android:onClick="onClick"/>
 
     <Button
         android:id="@+id/btnDice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dados" />
+        android:text="Dados"
+        android:onClick="onClick"/>
 
 </LinearLayout>
