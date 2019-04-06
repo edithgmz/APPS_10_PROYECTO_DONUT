@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ROLTASTICO</string>
+    <string name="rwby_un">Rwby un</string>
+    <string name="ve_viejo_oeste">VE Viejo Oeste</string>
+    <string name="carne_fresca_ji">Carne fresca ji</string>
+    <string name="dados">Dados</string>
+    <string name="portada">portada</string>
 </resources>

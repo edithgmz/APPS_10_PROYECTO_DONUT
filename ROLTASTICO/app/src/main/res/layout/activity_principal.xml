@@ -7,32 +7,47 @@
     android:orientation="vertical"
     tools:context=".Principal" >
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="280dp"
+        android:contentDescription="@string/portada"
+        app:srcCompat="@drawable/portada" />
+
     <Button
-        android:id="@+id/btnRw"
+        android:id="@+id/btnRW"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Rwby un"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:text="@string/rwby_un"
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnVO"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="VE Viejo Oeste"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:text="@string/ve_viejo_oeste"
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnCF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sistema 3"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:text="@string/carne_fresca_ji"
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
     <Button
-        android:id="@+id/btnDice"
+        android:id="@+id/btnDados"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dados"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:text="@string/dados"
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
 </LinearLayout>
