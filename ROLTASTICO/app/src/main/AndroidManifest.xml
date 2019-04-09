@@ -10,14 +10,34 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Dados"
-            android:parentActivityName=".Principal">
+            android:name="edith.example.sistemas.ViejoOeste"
+            android:label="@string/title_activity_viejo_oeste"
+            android:parentActivityName=".Principal"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Principal" />
+                android:value="edith.example.roltastico.Principal" />
         </activity>
         <activity
-            android:name=".Sistema"
+            android:name="edith.example.sistemas.CarneFresca"
+            android:label="@string/title_activity_carne_fresca"
+            android:parentActivityName=".Principal"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edith.example.roltastico.Principal" />
+        </activity>
+        <activity
+            android:name="edith.example.sistemas.Rwby"
+            android:label="@string/title_activity_rwby"
+            android:parentActivityName=".Principal"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edith.example.roltastico.Principal" />
+        </activity>
+        <activity
+            android:name=".Dados"
             android:parentActivityName=".Principal">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

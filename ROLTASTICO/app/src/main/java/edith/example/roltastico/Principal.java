@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 public class Principal extends AppCompatActivity {
     Button[] btnMenu;
-    Intent inDados, inSistema;
+    Intent inDados, inRW, inVO, inCF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {//falta el cambio de presionar botón a otro menú
@@ -23,7 +23,7 @@ public class Principal extends AppCompatActivity {
         };
 
         inDados = new Intent(this, Dados.class);
-        inSistema = new Intent(this, Sistema.class);
+        //inRW = new Intent(this, Sistema.class);
     }
 
     public void onClick(View view){
@@ -33,7 +33,7 @@ public class Principal extends AppCompatActivity {
                 Toast.makeText(this,"cambiar pantalla",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btnRW:
-                startActivity(inSistema);
+                startActivity(inRW);
                 Toast.makeText(this, "cambiar pantalla", Toast.LENGTH_SHORT).show();
                 break;
              default:
