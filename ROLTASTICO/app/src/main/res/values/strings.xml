@@ -19,14 +19,17 @@
     <string name="title_activity_rwby">Rwby</string>
     <string name="title_activity_viejo_oeste">ViejoOeste</string>
     <string name="title_activity_carne_fresca">CarneFresca</string>
+
     <string-array name="spm_rw">
         <item>Agresividad</item>
         <item>Precisión</item>
         <item>Elegancia</item>
     </string-array>
+
     <string-array name="spr_rw">
         <item>Peso</item>
         <item>Energía</item>
         <item>Precisión</item>
     </string-array>
+
 </resources>

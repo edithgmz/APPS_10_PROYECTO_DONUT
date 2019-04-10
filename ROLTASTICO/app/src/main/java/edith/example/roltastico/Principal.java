@@ -15,7 +15,7 @@ public class Principal extends AppCompatActivity {
     Intent inDados, inRW, inVO, inCF;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {//falta el cambio de presionar botón a otro menú
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
         btnMenu = new Button[]{

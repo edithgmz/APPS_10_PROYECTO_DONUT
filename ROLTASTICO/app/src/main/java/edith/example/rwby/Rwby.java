@@ -61,8 +61,7 @@ public class Rwby extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                d6 = "" + (int) (Math.random() * 6 + 1);//del 0 al 6 sin llegar a 6(0-5)+ 1 es 1-6
-                //número aleatorio del 1 al 6
+                d6 = "" + (int) (Math.random() * 6 + 1); //1 a 6
                 Snackbar.make(view, "1D6: " + d6, Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -119,8 +118,7 @@ public class Rwby extends AppCompatActivity {
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = null;
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1:
