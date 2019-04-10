@@ -5,9 +5,72 @@
     tools:context="edith.example.rwby.RwDust">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="RW DUST" />
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/chBxRed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rojo" />
+
+        <CheckBox
+            android:id="@+id/chBxYellow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Amarillo" />
+
+        <CheckBox
+            android:id="@+id/chBxGreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Verde" />
+
+        <CheckBox
+            android:id="@+id/chBxBlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Azul" />
+
+        <CheckBox
+            android:id="@+id/chBxOrange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Naranja" />
+
+        <CheckBox
+            android:id="@+id/chBxViolet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Morado" />
+
+        <CheckBox
+            android:id="@+id/chBxBrown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Café" />
+
+        <CheckBox
+            android:id="@+id/chBxPink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rosa" />
+
+        <CheckBox
+            android:id="@+id/chBxWhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Blanco" />
+
+        <CheckBox
+            android:id="@+id/chBxBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Negro" />
+
+
+    </LinearLayout>
 
 </FrameLayout>
