@@ -1,4 +1,4 @@
-package edith.example.sistemas;
+package edith.example.carnefresca;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -15,11 +15,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import edith.example.roltastico.R;
 
-public class ViejoOeste extends AppCompatActivity {
+public class CarneFresca extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -39,7 +38,7 @@ public class ViejoOeste extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_viejo_oeste);
+        setContentView(R.layout.activity_carne_fresca);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -72,7 +71,7 @@ public class ViejoOeste extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_viejo_oeste, menu);
+        getMenuInflater().inflate(R.menu.menu_carne_fresca, menu);
         return true;
     }
 
@@ -119,9 +118,21 @@ public class ViejoOeste extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_viejo_oeste, container, false);
-            TextView textView = rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            View rootView = null;
+            switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
+                case 1:
+                    rootView = inflater.inflate(R.layout.fragment_cf_general, container, false);
+                    break;
+                case 2:
+                    rootView = inflater.inflate(R.layout.fragment_cf_rasgos, container, false);
+                    break;
+                case 3:
+                    rootView = inflater.inflate(R.layout.fragment_cf_cuerpo, container, false);
+                    break;
+                case 4:
+                    rootView = inflater.inflate(R.layout.fragment_cf_salud, container, false);
+                    break;
+            }
             return rootView;
         }
     }
@@ -145,8 +156,8 @@ public class ViejoOeste extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            //Muestra 4 páginas
+            return 4;
         }
     }
 }

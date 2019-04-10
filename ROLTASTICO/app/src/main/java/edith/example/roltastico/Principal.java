@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
+import edith.example.carnefresca.CarneFresca;
+import edith.example.rwby.Rwby;
+import edith.example.viejooeste.ViejoOeste;
 
 public class Principal extends AppCompatActivity {
     Button[] btnMenu;
@@ -23,21 +26,25 @@ public class Principal extends AppCompatActivity {
         };
 
         inDados = new Intent(this, Dados.class);
-        //inRW = new Intent(this, Sistema.class);
+        inRW = new Intent(this, Rwby.class);
+        inVO = new Intent(this, ViejoOeste.class);
+        inCF = new Intent(this, CarneFresca.class);
     }
 
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btnDados:
                 startActivity(inDados);
-                Toast.makeText(this,"cambiar pantalla",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btnRW:
                 startActivity(inRW);
-                Toast.makeText(this, "cambiar pantalla", Toast.LENGTH_SHORT).show();
                 break;
-             default:
-                 Toast.makeText(this,"no está listo",Toast.LENGTH_SHORT).show();
+            case R.id.btnVO:
+                startActivity(inVO);
+                break;
+            case R.id.btnCF:
+                startActivity(inCF);
+                break;
         }
     }
 }

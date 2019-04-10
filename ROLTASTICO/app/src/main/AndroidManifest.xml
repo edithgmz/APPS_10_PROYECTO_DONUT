@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="edith.example.sistemas.ViejoOeste"
+            android:name="edith.example.viejooeste.ViejoOeste"
             android:label="@string/title_activity_viejo_oeste"
             android:parentActivityName=".Principal"
             android:theme="@style/AppTheme.NoActionBar">
@@ -19,7 +19,7 @@
                 android:value="edith.example.roltastico.Principal" />
         </activity>
         <activity
-            android:name="edith.example.sistemas.CarneFresca"
+            android:name="edith.example.carnefresca.CarneFresca"
             android:label="@string/title_activity_carne_fresca"
             android:parentActivityName=".Principal"
             android:theme="@style/AppTheme.NoActionBar">
@@ -28,7 +28,7 @@
                 android:value="edith.example.roltastico.Principal" />
         </activity>
         <activity
-            android:name="edith.example.sistemas.Rwby"
+            android:name="edith.example.rwby.Rwby"
             android:label="@string/title_activity_rwby"
             android:parentActivityName=".Principal"
             android:theme="@style/AppTheme.NoActionBar">

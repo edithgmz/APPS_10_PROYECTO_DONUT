@@ -1,4 +1,4 @@
-package edith.example.sistemas;
+package edith.example.rwby;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -15,7 +15,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import edith.example.roltastico.R;
 
@@ -119,9 +118,21 @@ public class Rwby extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_rwby, container, false);
-            TextView textView = rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            View rootView = null;
+            switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
+                case 1:
+                    rootView = inflater.inflate(R.layout.fragment_rw_general, container, false);
+                    break;
+                case 2:
+                    rootView = inflater.inflate(R.layout.fragment_rw_rasgos, container, false);
+                    break;
+                case 3:
+                    rootView = inflater.inflate(R.layout.fragment_rw_dust, container, false);
+                    break;
+                case 4:
+                    rootView = inflater.inflate(R.layout.fragment_rw_ventaja, container, false);
+                    break;
+            }
             return rootView;
         }
     }
@@ -145,8 +156,8 @@ public class Rwby extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            //Muestra 4 páginas
+            return 4;
         }
     }
 }
