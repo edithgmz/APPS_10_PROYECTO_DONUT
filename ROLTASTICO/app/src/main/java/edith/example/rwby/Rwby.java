@@ -34,6 +34,7 @@ public class Rwby extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    private String d6 = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +61,9 @@ public class Rwby extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                d6 = "" + (int) (Math.random() * 6 + 1);//del 0 al 6 sin llegar a 6(0-5)+ 1 es 1-6
+                //número aleatorio del 1 al 6
+                Snackbar.make(view, "1D6: " + d6, Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });

@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:onClick="onClick"
         android:text="@string/rwby"
-        android:textSize="14sp"
+        android:textSize="17sp"
         android:textStyle="bold" />
 
     <Button
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:onClick="onClick"
         android:text="@string/viejo_oeste"
-        android:textSize="14sp"
+        android:textSize="17sp"
         android:textStyle="bold" />
 
     <Button
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:onClick="onClick"
         android:text="@string/carne_fresca"
-        android:textSize="14sp"
+        android:textSize="17sp"
         android:textStyle="bold" />
 
     <Button
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:onClick="onClick"
         android:text="@string/dados"
-        android:textSize="14sp"
+        android:textSize="17sp"
         android:textStyle="bold" />
 
 </LinearLayout>
