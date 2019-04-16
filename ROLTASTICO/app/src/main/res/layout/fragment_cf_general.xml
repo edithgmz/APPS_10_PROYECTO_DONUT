@@ -8,6 +8,26 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="CF GENERAL" />
+        android:text="Nombre" />
+
+    <EditText
+        android:id="@+id/edtTxtNom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="asgos físiscos" />
+
+    <EditText
+        android:id="@+id/edtTxtRasFis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
 </FrameLayout>
