@@ -19,6 +19,8 @@
     <string name="title_activity_rwby">Rwby</string>
     <string name="title_activity_viejo_oeste">ViejoOeste</string>
     <string name="title_activity_carne_fresca">CarneFresca</string>
+    <string name="conducir">Conducir</string>
+    <string name="punter_a">Puntería</string>
 
     <string-array name="spm_rw">
         <item>Agresividad</item>
