@@ -70,8 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
+                android:inputType="number" />
 
         </LinearLayout>
 
@@ -140,14 +139,14 @@
 
             <TextView
                 android:id="@+id/textView12"
-                android:layout_width="0DP"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/conducir" />
 
             <EditText
                 android:id="@+id/editText7"
-                android:layout_width="0DP"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -155,14 +154,14 @@
 
             <TextView
                 android:id="@+id/textView13"
-                android:layout_width="0DP"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/punter_a" />
 
             <EditText
                 android:id="@+id/editText8"
-                android:layout_width="0DP"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -170,14 +169,14 @@
 
             <TextView
                 android:id="@+id/textView14"
-                android:layout_width="0DP"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Sigilo" />
 
             <EditText
                 android:id="@+id/editText9"
-                android:layout_width="0DP"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
