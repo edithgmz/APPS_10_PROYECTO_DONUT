@@ -222,7 +222,7 @@
                     android:text="Manitas" />
 
                 <EditText
-                    android:id="@+id/editText14"
+                    android:id="@+id/edtMani"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
