@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="edith.example.viejooeste.ViejoOeste">
+    tools:context="edith.example.rwby.Rwby">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -23,7 +23,7 @@
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="@string/viejo_oeste">
+            app:title="@string/rwby">
 
         </android.support.v7.widget.Toolbar>
 
@@ -48,7 +48,13 @@
                 android:id="@+id/tabItem3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tab_vo_1" />
+                android:text="@string/tab_rw_1" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/tabItem4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_rw_2" />
 
         </android.support.design.widget.TabLayout>
     </android.support.design.widget.AppBarLayout>
@@ -59,6 +65,11 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+
+
+
+
+
     <!--
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -66,6 +77,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/dado" /> -->
-
+        app:srcCompat="@drawable/dado" />
+    -->
 </android.support.design.widget.CoordinatorLayout>
+
+

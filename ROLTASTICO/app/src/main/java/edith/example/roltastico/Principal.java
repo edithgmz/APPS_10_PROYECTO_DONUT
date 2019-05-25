@@ -23,10 +23,10 @@ public class Principal extends AppCompatActivity {
                 findViewById(R.id.btnRW),
                 findViewById(R.id.btnVO),
                 findViewById(R.id.btnCF),
-                findViewById(R.id.btnDados)
+               // findViewById(R.id.btnDados)
         };
 
-        inDados = new Intent(this, Dados.class);
+       // inDados = new Intent(this, Dados.class);
         inRW = new Intent(this, Rwby.class);
         inVO = new Intent(this, ViejoOeste.class);
         inCF = new Intent(this, CarneFresca.class);
@@ -34,9 +34,6 @@ public class Principal extends AppCompatActivity {
 
     public void onClick(View view){
         switch (view.getId()){
-            case R.id.btnDados:
-                startActivity(inDados);
-                break;
             case R.id.btnRW:
                 startActivity(inRW);
                 break;

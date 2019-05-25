@@ -15,10 +15,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Switch;
+import android.widget.Toast;
 
+import com.github.clans.fab.FloatingActionMenu;
+
+import edith.example.roltastico.Dado;
 import edith.example.roltastico.R;
 
 public class Rwby extends AppCompatActivity {
+    FloatingActionMenu menuFlo;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -57,6 +63,11 @@ public class Rwby extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+
+        menuFlo =  findViewById(R.id.menuRw);
+        menuFlo.setClosedOnTouchOutside(true);
+
+        /*
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +77,7 @@ public class Rwby extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        */
 
     }
 
@@ -90,6 +102,26 @@ public class Rwby extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onClick(View view) {
+        Dado d;
+        int t1,t2;
+        String str="error";
+        switch (view.getId()) {
+            case R.id.double10:
+                d = new Dado(10);
+                t1 = d.roll();
+                t2 = d.roll();
+                str="["+t1+","+t2+"]= "+(t1+t2);
+                break;
+            case R.id.d4:
+                d = new Dado(4);
+                t1 = d.roll();
+                str="["+t1+"]";
+                break;
+        }
+        Toast.makeText(this, str ,Toast.LENGTH_SHORT).show();
     }
 
     /**

@@ -15,11 +15,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.github.clans.fab.FloatingActionMenu;
+
+import edith.example.roltastico.Dado;
 import edith.example.roltastico.R;
 
 public class CarneFresca extends AppCompatActivity {
 
+    private FloatingActionMenu menuFlo;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -56,6 +61,10 @@ public class CarneFresca extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+        menuFlo =  findViewById(R.id.menuCF);
+        menuFlo.setClosedOnTouchOutside(true);
+
+        /*
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +72,7 @@ public class CarneFresca extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
     }
 
@@ -88,6 +97,40 @@ public class CarneFresca extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onClick(View v) {
+        Dado d6 =new Dado(6);
+        int t1=d6.roll();
+        int t2=d6.roll();
+        String str="error",res="fracaso";
+
+        switch (v.getId()) {
+            case R.id.facil:
+                str="["+t1+","+t2+"]";
+                if (t1>3||t2>3)
+                        res="exito";
+                break;
+            case R.id.medio:
+                str="["+t1+"]";
+                if (t1>3)
+                    res="exito";
+                break;
+            case R.id.dificil:
+                str="["+t1+","+t2+"]";
+                if (t1>3&&t2>3)
+                    res="exito";
+                break;
+            case R.id.mDificil:
+                int t3=d6.roll();
+                str="["+t1+","+t2+","+t3+"]";
+                if (t1>3&&t2>3&&t3>3)
+                    res="exito";
+                break;
+
+        }
+        str+=res;
+        Toast.makeText(this, str, Toast.LENGTH_LONG).show();
     }
 
     /**

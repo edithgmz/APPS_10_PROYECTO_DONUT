@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name="edith.example.carnefresca.cf_fab"></activity>
+        <activity android:name=".activity_vo_fab" />
+        <activity android:name=".fab" />
         <activity
             android:name="edith.example.viejooeste.ViejoOeste"
             android:label="@string/title_activity_viejo_oeste"
