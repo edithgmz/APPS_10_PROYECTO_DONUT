@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">ROLTASTICO</string>
+
     <string name="rwby">RWBY</string>
     <string name="viejo_oeste">VIEJO OESTE</string>
     <string name="carne_fresca">CARNE FRESCA</string>
     <string name="dados">Dados</string>
+
     <string name="portada">portada</string>
+
     <string name="tab_1">General</string>
     <string name="tab_2">Rasgos</string>
     <string name="tab_rw_1">Dust</string>
@@ -12,26 +15,94 @@
     <string name="tab_vo_1">Ítems</string>
     <string name="tab_cf_1">Cuerpo</string>
     <string name="tab_cf_2">Salud</string>
+
     <string name="action_abrir">Abrir</string>
     <string name="action_guardar">Guardar</string>
     <string name="action_editar">Editar</string>
     <string name="action_eliminar">Eliminar</string>
+
     <string name="title_activity_rwby">Rwby</string>
     <string name="title_activity_viejo_oeste">ViejoOeste</string>
     <string name="title_activity_carne_fresca">CarneFresca</string>
+
     <string name="conducir">Conducir</string>
     <string name="punter_a">Puntería</string>
 
-    <string-array name="spm_rw">
+    <string-array name="sp_val_cf">
+        <item>-5</item>
+        <item>-4</item>
+        <item>-3</item>
+        <item>-2</item>
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="sp_cue_cf">
+        <item>Dañado</item>
+        <item>Sin daño</item>
+    </string-array>
+
+    <string-array name="sp_mel_rw">
         <item>Agresividad</item>
         <item>Precisión</item>
         <item>Elegancia</item>
     </string-array>
-
-    <string-array name="spr_rw">
+    <string-array name="sp_ran_rw">
         <item>Peso</item>
         <item>Energía</item>
         <item>Precisión</item>
+    </string-array>
+    <string-array name="sp_val_rw">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="sp_cla_vo">
+        <item>Explorador</item>
+        <item>Pistolero</item>
+        <item>Predicador</item>
+        <item>Tahúr</item>
+    </string-array>
+    <string-array name="sp_adq_vo">
+        <item>Vagabundo</item>
+        <item>Pobre</item>
+        <item>Propietario</item>
+        <item>Acomodado</item>
+        <item>Pudiente</item>
+        <item>Rico</item>
+    </string-array>
+    <string-array name="sp_atr_vo">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+    </string-array>
+    <string-array name="sp_bon_vo">
+        <item>-2</item>
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 
 </resources>

@@ -4,81 +4,125 @@
     android:layout_height="match_parent"
     tools:context="edith.example.rwby.RwDust">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:orientation="vertical">
 
-        <CheckBox
-            android:id="@+id/chBxRed"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rojo"
-            android:textSize="16sp" />
+            android:layout_marginTop="5dp"
+            android:text="Primero"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@android:color/black"
+            android:textSize="17sp" />
 
-        <CheckBox
-            android:id="@+id/chBxYellow"
+        <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Amarillo"
-            android:textSize="16sp" />
+            android:layout_height="wrap_content">
 
-        <CheckBox
-            android:id="@+id/chBxGreen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Verde"
-            android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/rdBtnBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/cNegr"
+                android:buttonTint="@android:color/white"
+                android:checked="true"
+                android:textSize="30sp" />
 
-        <CheckBox
-            android:id="@+id/chBxBlue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Azul"
-            android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/rdBtnBrown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/cCafe"
+                android:buttonTint="@android:color/white"
+                android:textSize="30sp" />
 
-        <CheckBox
-            android:id="@+id/chBxOrange"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Naranja"
-            android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/rdBtnRed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/cRojo"
+                android:buttonTint="@android:color/white"
+                android:textSize="30sp" />
 
-        <CheckBox
-            android:id="@+id/chBxViolet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Morado"
-            android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/rdBtnOrange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/cNara"
+                android:buttonTint="@android:color/white"
+                android:textSize="30sp" />
 
-        <CheckBox
-            android:id="@+id/chBxBrown"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Café"
-            android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/rdBtnYellow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/cAmar"
+                android:buttonTint="@android:color/white"
+                android:textSize="30sp" />
 
-        <CheckBox
-            android:id="@+id/chBxPink"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Rosa"
-            android:textSize="16sp" />
+        </RadioGroup>
 
-        <CheckBox
-            android:id="@+id/chBxWhite"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Blanco"
-            android:textSize="16sp" />
+            android:layout_marginTop="5dp"
+            android:text="Segundo"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@android:color/black"
+            android:textSize="17sp" />
 
-        <CheckBox
-            android:id="@+id/chBxBlack"
+        <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Negro"
-            android:textSize="16sp" />
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rdBtnGreen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/cVerd"
+                android:buttonTint="@android:color/black"
+                android:checked="true"
+                android:textSize="30sp" />
+
+            <RadioButton
+                android:id="@+id/rdBtnBlue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/cAzul"
+                android:buttonTint="@android:color/black"
+                android:textSize="30sp" />
+
+            <RadioButton
+                android:id="@+id/rdBtnViolet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/cMora"
+                android:buttonTint="@android:color/black"
+                android:textSize="30sp" />
+
+            <RadioButton
+                android:id="@+id/rdBtnPink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/cRosa"
+                android:buttonTint="@android:color/black"
+                android:textSize="30sp" />
+
+            <RadioButton
+                android:id="@+id/rdBtnWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/cBlan"
+                android:buttonTint="@android:color/black"
+                android:textSize="30sp" />
+
+        </RadioGroup>
 
 
     </LinearLayout>

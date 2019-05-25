@@ -1,48 +1,106 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edith.example.carnefresca.CfGeneral">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:fillViewport="true">
 
-        <ImageView
-            android:layout_width="125dp"
-            android:layout_height="103dp" />
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nombre" />
+            android:layout_margin="5dp"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/edtTxtNom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="rasgos físiscos" />
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/TxtInEdtRasFis"
+            <ImageView
+                android:id="@+id/imgVwCfPer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="hint" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                app:srcCompat="@drawable/cam" />
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/edtTxtCfNom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Thelma “Cuerpazo” Loosle"
+                    android:inputType="textPersonName" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Género"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rdBtnCfFem"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:checked="true"
+                            android:text="Femenino"
+                            android:textSize="14sp" />
+
+                        <RadioButton
+                            android:id="@+id/rdBtnCfMasc"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Masculino"
+                            android:textSize="14sp" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rasgos Físicos"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/edtTxtCfRasFis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:hint="Un verdadero bombón. Es la típica jovencita americana en la que quieren convertirse todas las niñas cuando lleguen a su edad."
+                    android:inputType="textMultiLine" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 
 </FrameLayout>

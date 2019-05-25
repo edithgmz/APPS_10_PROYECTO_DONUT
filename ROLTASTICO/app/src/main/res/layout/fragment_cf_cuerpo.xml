@@ -1,67 +1,216 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edith.example.carnefresca.CfCuerpo">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_margin="5dp">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/body"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
+            android:id="@+id/txt1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cabeza" />
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="6"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/txt2"
+            app:layout_constraintEnd_toEndOf="@+id/img"
+            app:layout_constraintHorizontal_bias="0.489"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/img"
+            app:layout_constraintVertical_bias="0.761" />
 
-        <EditText
-            android:id="@+id/edtTxtCab"
+        <Spinner
+            android:id="@+id/spCfCabeza"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="brazos" />
-
-        <EditText
-            android:id="@+id/edtTxtBra"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="torso" />
-
-        <EditText
-            android:id="@+id/edtTxtTor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number" />
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:entries="@array/sp_cue_cf"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.383"
+            app:layout_constraintStart_toEndOf="@+id/txt1"
+            app:layout_constraintTop_toTopOf="@+id/img"
+            app:layout_constraintVertical_bias="0.217" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/txt2"
+            android:layout_width="wrap_content"
+            android:layout_height="19dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="1-2"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/txt6"
+            app:layout_constraintEnd_toEndOf="@+id/img"
+            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintStart_toStartOf="@+id/img"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.52" />
+
+        <Spinner
+            android:id="@+id/spCfTorso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Piernas" />
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="88dp"
+            android:entries="@array/sp_cue_cf"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/img"
+            app:layout_constraintHorizontal_bias="0.818"
+            app:layout_constraintStart_toEndOf="@+id/txt2"
+            app:layout_constraintTop_toTopOf="@+id/img"
+            app:layout_constraintVertical_bias="0.195" />
 
-        <EditText
-            android:id="@+id/edtTxtPie"
+        <TextView
+            android:id="@+id/txt3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number" />
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="3"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/txt6"
+            app:layout_constraintEnd_toStartOf="@+id/txt4"
+            app:layout_constraintHorizontal_bias="0.599"
+            app:layout_constraintStart_toStartOf="@+id/img"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.688" />
 
-    </LinearLayout>
+        <Spinner
+            android:id="@+id/spCfBrIzq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"
+            android:entries="@array/sp_cue_cf"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/img"
+            app:layout_constraintEnd_toEndOf="@+id/img"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/txt4"
+            app:layout_constraintTop_toTopOf="@+id/img"
+            app:layout_constraintVertical_bias="0.47" />
+
+        <TextView
+            android:id="@+id/txt4"
+            android:layout_width="9dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="4"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/txt5"
+            app:layout_constraintEnd_toEndOf="@+id/img"
+            app:layout_constraintHorizontal_bias="0.654"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt2"
+            app:layout_constraintVertical_bias="0.272" />
+
+        <Spinner
+            android:id="@+id/spBrDer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:entries="@array/sp_cue_cf"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/img"
+            app:layout_constraintEnd_toStartOf="@+id/txt3"
+            app:layout_constraintStart_toStartOf="@+id/img"
+            app:layout_constraintTop_toTopOf="@+id/img"
+            app:layout_constraintVertical_bias="0.47" />
+
+        <TextView
+            android:id="@+id/txt5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="5"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.547"
+            app:layout_constraintStart_toStartOf="@+id/img"
+            app:layout_constraintTop_toBottomOf="@+id/txt2"
+            app:layout_constraintVertical_bias="0.48" />
+
+        <TextView
+            android:id="@+id/txt6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="5"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/img"
+            app:layout_constraintEnd_toStartOf="@+id/txt5"
+            app:layout_constraintHorizontal_bias="0.832"
+            app:layout_constraintStart_toStartOf="@+id/img"
+            app:layout_constraintTop_toBottomOf="@+id/spBrDer"
+            app:layout_constraintVertical_bias="0.329" />
+
+        <Spinner
+            android:id="@+id/spPiernas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:entries="@array/sp_cue_cf"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/img"
+            app:layout_constraintEnd_toEndOf="@+id/img"
+            app:layout_constraintHorizontal_bias="0.486"
+            app:layout_constraintStart_toEndOf="@+id/txt5"
+            app:layout_constraintTop_toTopOf="@+id/img"
+            app:layout_constraintVertical_bias="0.679" />
+
+    </android.support.constraint.ConstraintLayout>
 
 
 </FrameLayout>

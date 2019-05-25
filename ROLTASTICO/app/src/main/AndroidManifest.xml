@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edith.example.roltastico">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,12 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="edith.example.carnefresca.cf_fab"></activity>
-        <activity android:name=".activity_vo_fab" />
-        <activity android:name=".fab" />
         <activity
             android:name="edith.example.viejooeste.ViejoOeste"
             android:label="@string/title_activity_viejo_oeste"
+            android:windowSoftInputMode="stateHidden"
             android:parentActivityName=".Principal"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -24,6 +25,7 @@
         <activity
             android:name="edith.example.carnefresca.CarneFresca"
             android:label="@string/title_activity_carne_fresca"
+            android:windowSoftInputMode="stateHidden"
             android:parentActivityName=".Principal"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -33,18 +35,12 @@
         <activity
             android:name="edith.example.rwby.Rwby"
             android:label="@string/title_activity_rwby"
+            android:windowSoftInputMode="stateHidden"
             android:parentActivityName=".Principal"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edith.example.roltastico.Principal" />
-        </activity>
-        <activity
-            android:name=".Dados"
-            android:parentActivityName=".Principal">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Principal" />
         </activity>
         <activity android:name=".Principal">
             <intent-filter>
