@@ -15,10 +15,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.github.clans.fab.FloatingActionMenu;
+
+import edith.example.roltastico.Dado;
 import edith.example.roltastico.R;
 
 public class ViejoOeste extends AppCompatActivity {
+    FloatingActionMenu menuFVO;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -56,6 +61,12 @@ public class ViejoOeste extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+       /* fMenuVO = findViewById(R.id.menuCF);
+        fMenuVO.setClosedOnTouchOutside(true);
+        */
+        menuFVO =  findViewById(R.id.menuVO);
+        menuFVO.setClosedOnTouchOutside(true);
+
         /*
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +100,26 @@ public class ViejoOeste extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onClick(View view) {
+        switch(view.getId()){
+            case R.id.d3:
+                Toast.makeText(this,(new Dado(3).roll())+",d3",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.d4:
+                Toast.makeText(this,(new Dado(4).roll())+",d4",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.d8:
+                Toast.makeText(this,(new Dado(8).roll())+",d8",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.dTwelve:
+                Toast.makeText(this,(new Dado(12).roll())+",d12",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.d20:
+                Toast.makeText(this,(new Dado(20).roll())+",d20",Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 
     /**
