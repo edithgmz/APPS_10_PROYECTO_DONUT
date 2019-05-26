@@ -15,6 +15,15 @@
         app:srcCompat="@drawable/portada" />
 
     <Button
+        android:id="@+id/btnCF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="@string/carne_fresca"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <Button
         android:id="@+id/btnRW"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,15 +38,6 @@
         android:layout_height="wrap_content"
         android:onClick="onClick"
         android:text="@string/viejo_oeste"
-        android:textSize="17sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/btnCF"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:text="@string/carne_fresca"
         android:textSize="17sp"
         android:textStyle="bold" />
 

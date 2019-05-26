@@ -1,8 +1,6 @@
 package edith.example.carnefresca;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -92,7 +90,17 @@ public class CarneFresca extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.acCfGuardar) {
+            Toast.makeText(this, "Guardado.", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (id == R.id.acCfAbrir) {
+            Toast.makeText(this, "Abrir.", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (id == R.id.acCfEditar) {
+            Toast.makeText(this, "Editar.", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (id == R.id.acCfEliminar) {
+            Toast.makeText(this, "Eliminar.", Toast.LENGTH_SHORT).show();
             return true;
         }
 

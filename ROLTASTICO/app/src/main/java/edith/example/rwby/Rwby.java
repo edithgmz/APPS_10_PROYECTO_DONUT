@@ -1,8 +1,6 @@
 package edith.example.rwby;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionMenu;
@@ -97,7 +94,17 @@ public class Rwby extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.acRwGuardar) {
+            Toast.makeText(this, "Guardado.", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (id == R.id.acRwAbrir) {
+            Toast.makeText(this, "Abrir.", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (id == R.id.acRwEditar) {
+            Toast.makeText(this, "Editar.", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (id == R.id.acRwEliminar) {
+            Toast.makeText(this, "Eliminar.", Toast.LENGTH_SHORT).show();
             return true;
         }
 

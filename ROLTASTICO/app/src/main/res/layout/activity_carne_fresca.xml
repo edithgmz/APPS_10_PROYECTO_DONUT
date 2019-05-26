@@ -14,48 +14,70 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <com.github.clans.fab.FloatingActionMenu
             android:id="@+id/menuCF"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:menu_fab_label="Menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true">
+            android:layout_alignParentEnd="true"
+            app:menu_colorNormal="@color/colorAccent"
+            app:menu_colorPressed="@color/colorAccent"
+            app:menu_colorRipple="@color/cAcc3"
+            app:menu_fab_size="normal"
+            app:menu_icon="@drawable/dado">
 
             <com.github.clans.fab.FloatingActionButton
                 android:id="@+id/facil"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:fab_label="facil"
+                android:onClick="onClick"
                 android:src="@drawable/dado"
-                android:onClick="onClick"/>
+                app:fab_colorNormal="@color/cAcc4"
+                app:fab_colorPressed="@color/cAcc4"
+                app:fab_colorRipple="@color/cAcc3"
+                app:fab_label="Fácil"
+                app:fab_size="normal" />
 
             <com.github.clans.fab.FloatingActionButton
                 android:id="@+id/medio"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:fab_label="medio"
+                android:onClick="onClick"
                 android:src="@drawable/dado"
-                android:onClick="onClick"/>
+                app:fab_colorNormal="@color/cAcc4"
+                app:fab_colorPressed="@color/cAcc4"
+                app:fab_colorRipple="@color/cAcc3"
+                app:fab_label="Medio"
+                app:fab_size="normal" />
 
             <com.github.clans.fab.FloatingActionButton
                 android:id="@+id/dificil"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:fab_label="dificil"
+                android:onClick="onClick"
                 android:src="@drawable/dado"
-                android:onClick="onClick"/>
+                app:fab_colorNormal="@color/cAcc4"
+                app:fab_colorPressed="@color/cAcc4"
+                app:fab_colorRipple="@color/cAcc3"
+                app:fab_label="Difícil"
+                app:fab_size="normal" />
 
             <com.github.clans.fab.FloatingActionButton
                 android:id="@+id/mDificil"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:fab_label="muy dificil"
+                android:onClick="onClick"
                 android:src="@drawable/dado"
-                android:onClick="onClick"/>
+                app:fab_colorNormal="@color/cAcc4"
+                app:fab_colorPressed="@color/cAcc4"
+                app:fab_colorRipple="@color/cAcc3"
+                app:fab_label="Muy difícil"
+                app:fab_size="normal" />
 
 
         </com.github.clans.fab.FloatingActionMenu>
+
 
     </RelativeLayout>
 

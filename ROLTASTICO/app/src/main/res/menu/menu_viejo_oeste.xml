@@ -3,8 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="edith.example.viejooeste.ViejoOeste">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/acVoGuardar"
         android:orderInCategory="100"
         android:title="@string/action_guardar"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/acVoAbrir"
+        android:title="@string/action_abrir" />
+    <item
+        android:id="@+id/acVoEditar"
+        android:title="@string/action_editar" />
+    <item
+        android:id="@+id/acVoEliminar"
+        android:title="@string/action_eliminar" />
 </menu>
