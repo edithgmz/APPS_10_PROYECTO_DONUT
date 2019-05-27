@@ -97,12 +97,6 @@ public class Rwby extends AppCompatActivity {
         if (id == R.id.acRwGuardar) {
             Toast.makeText(this, "Guardado.", Toast.LENGTH_SHORT).show();
             return true;
-        } else if (id == R.id.acRwAbrir) {
-            Toast.makeText(this, "Abrir.", Toast.LENGTH_SHORT).show();
-            return true;
-        } else if (id == R.id.acRwEditar) {
-            Toast.makeText(this, "Editar.", Toast.LENGTH_SHORT).show();
-            return true;
         } else if (id == R.id.acRwEliminar) {
             Toast.makeText(this, "Eliminar.", Toast.LENGTH_SHORT).show();
             return true;

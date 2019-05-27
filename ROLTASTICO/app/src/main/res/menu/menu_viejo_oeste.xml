@@ -8,12 +8,6 @@
         android:title="@string/action_guardar"
         app:showAsAction="never" />
     <item
-        android:id="@+id/acVoAbrir"
-        android:title="@string/action_abrir" />
-    <item
-        android:id="@+id/acVoEditar"
-        android:title="@string/action_editar" />
-    <item
         android:id="@+id/acVoEliminar"
         android:title="@string/action_eliminar" />
 </menu>

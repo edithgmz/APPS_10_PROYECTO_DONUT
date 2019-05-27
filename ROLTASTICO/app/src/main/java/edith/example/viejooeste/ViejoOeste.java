@@ -96,12 +96,6 @@ public class ViejoOeste extends AppCompatActivity {
         if (id == R.id.acVoGuardar) {
             Toast.makeText(this, "Guardado.", Toast.LENGTH_SHORT).show();
             return true;
-        } else if (id == R.id.acVoAbrir) {
-            Toast.makeText(this, "Abrir.", Toast.LENGTH_SHORT).show();
-            return true;
-        } else if (id == R.id.acVoEditar) {
-            Toast.makeText(this, "Editar.", Toast.LENGTH_SHORT).show();
-            return true;
         } else if (id == R.id.acVoEliminar) {
             Toast.makeText(this, "Eliminar.", Toast.LENGTH_SHORT).show();
             return true;

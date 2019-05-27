@@ -36,6 +36,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
     }
 
+    //Insertar registro en CF
     public void insertarCF(String img, String nom, String rasfis, int isfem, String cabeza, String brader, String braizq,
                            String torso, String piernas, int based, int peld, int pelar, int res, int cond, int punt, int sigi,
                            int mani, int arr, int ocen, int pra, int inti, int conv, int aten, int orie, int danio, int tens) {
@@ -69,6 +70,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         bd.insert("cf", null, cv);
     }
 
+    //Insertar registro en RW
     public void insertarRW(String img, String nom, int isfem, int ishum, String cabel, String ojos, String arma, int fue, int vol,
                            int agi, int per, int res, int dis, int salud, int aura, int capa, int melee, int dist, String dust1,
                            String dust2, String semb, String mod) {
@@ -98,6 +100,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         bd.insert("rw", null, cv);
     }
 
+    //Insertar registro en VO
     public void insertarVO(String img, String nom, String clase, String nivadq, int px, int nivel, String trans, String tal1,
                            String tal2, int isfem, int stdfue, int stddes, int stdcon, int stdint, int stdsab, int stdcar,
                            int modfue, int moddes, int modcon, int modint, int modsab, int modcar, int alerta, int comun, int manip,
@@ -148,5 +151,12 @@ public class BaseDatos extends SQLiteOpenHelper {
         bd.insert("vo", null, cv);
     }
 
+    //Obtener lista de CF
+
+
+    //Obtener lista de RW
+
+
+    //Obtener lista de VO
 
 }

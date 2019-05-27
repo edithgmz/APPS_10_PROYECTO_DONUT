@@ -314,6 +314,7 @@
                         android:layout_weight="1"
                         android:ems="3"
                         android:gravity="center"
+                        android:hint="2"
                         android:inputType="numberSigned"
                         android:textAlignment="center"
                         android:textSize="14sp" />
@@ -330,6 +331,7 @@
                         android:layout_weight="1"
                         android:ems="3"
                         android:gravity="center"
+                        android:hint="1"
                         android:inputType="numberSigned"
                         android:textAlignment="center"
                         android:textSize="14sp" />
@@ -380,6 +382,7 @@
                         android:layout_weight="1"
                         android:ems="3"
                         android:gravity="center"
+                        android:hint="3"
                         android:inputType="numberSigned"
                         android:textAlignment="center"
                         android:textSize="14sp" />
@@ -396,6 +399,7 @@
                         android:layout_weight="1"
                         android:ems="3"
                         android:gravity="center"
+                        android:hint="0"
                         android:inputType="numberSigned"
                         android:textAlignment="center"
                         android:textSize="14sp" />
@@ -446,6 +450,7 @@
                         android:layout_weight="1"
                         android:ems="3"
                         android:gravity="center"
+                        android:hint="2"
                         android:inputType="numberSigned"
                         android:textAlignment="center"
                         android:textSize="14sp" />
@@ -462,6 +467,7 @@
                         android:layout_weight="1"
                         android:ems="3"
                         android:gravity="center"
+                        android:hint="1"
                         android:inputType="numberSigned"
                         android:textAlignment="center"
                         android:textSize="14sp" />
@@ -523,6 +529,7 @@
                     android:editable="false"
                     android:ems="10"
                     android:enabled="false"
+                    android:hint="14"
                     android:inputType="number"
                     android:textAlignment="center"
                     android:textSize="14sp" />
@@ -539,6 +546,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:hint="14"
                     android:inputType="number"
                     android:textAlignment="center"
                     android:textSize="14sp" />
@@ -622,6 +630,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:hint="16"
                     android:inputType="numberSigned"
                     android:textAlignment="center"
                     android:textSize="14sp" />
@@ -638,6 +647,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:hint="1"
                     android:inputType="numberSigned"
                     android:textAlignment="center"
                     android:textSize="14sp" />
@@ -654,6 +664,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:hint="2"
                     android:inputType="numberSigned"
                     android:textAlignment="center"
                     android:textSize="14sp" />
@@ -670,6 +681,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:hint="10"
                     android:inputType="number"
                     android:textAlignment="center"
                     android:textSize="14sp" />

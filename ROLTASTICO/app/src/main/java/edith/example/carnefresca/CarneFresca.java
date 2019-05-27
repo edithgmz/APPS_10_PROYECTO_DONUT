@@ -1,6 +1,10 @@
 package edith.example.carnefresca;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,7 +20,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionMenu;
+import com.kosalgeek.android.photoutil.GalleryPhoto;
+import com.kosalgeek.android.photoutil.ImageLoader;
 
+import java.io.FileNotFoundException;
+
+import edith.example.datos.BaseDatos;
 import edith.example.roltastico.Dado;
 import edith.example.roltastico.R;
 
@@ -37,6 +46,12 @@ public class CarneFresca extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+
+    private static int GALLERY_REQUEST = 2200;
+    //
+    private GalleryPhoto gpGaleria;
+    //
+    private BaseDatos baseDatos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,8 +87,38 @@ public class CarneFresca extends AppCompatActivity {
             }
         });*/
 
+        baseDatos = new BaseDatos(getApplicationContext());
+        //
+        gpGaleria = new GalleryPhoto(getApplicationContext());
     }
 
+
+    public void selecImagen(View v) {
+        //Toast.makeText(getApplicationContext(), v.getId() + "Abrir galería.", Toast.LENGTH_SHORT).show();
+        startActivityForResult(gpGaleria.openGalleryIntent(), GALLERY_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == GALLERY_REQUEST) {
+                Uri uriImagen = null;
+                if (data != null) {
+                    uriImagen = data.getData();
+                }
+                gpGaleria.setPhotoUri(uriImagen);
+                String sRutaImagen = gpGaleria.getPath();
+                try {
+                    Bitmap bImagen = ImageLoader.init().from(sRutaImagen).getBitmap();
+                    //imgVwCfPer.setImageBitmap(bImagen);
+                    Toast.makeText(getApplicationContext(), sRutaImagen + "\n\n" + uriImagen, Toast.LENGTH_LONG).show();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -91,13 +136,8 @@ public class CarneFresca extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.acCfGuardar) {
+
             Toast.makeText(this, "Guardado.", Toast.LENGTH_SHORT).show();
-            return true;
-        } else if (id == R.id.acCfAbrir) {
-            Toast.makeText(this, "Abrir.", Toast.LENGTH_SHORT).show();
-            return true;
-        } else if (id == R.id.acCfEditar) {
-            Toast.makeText(this, "Editar.", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.acCfEliminar) {
             Toast.makeText(this, "Eliminar.", Toast.LENGTH_SHORT).show();
@@ -135,7 +175,6 @@ public class CarneFresca extends AppCompatActivity {
                 if (t1>3&&t2>3&&t3>3)
                     res="exito";
                 break;
-
         }
         str+=res;
         Toast.makeText(this, str, Toast.LENGTH_LONG).show();

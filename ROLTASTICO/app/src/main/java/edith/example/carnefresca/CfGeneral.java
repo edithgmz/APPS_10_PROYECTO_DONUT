@@ -3,6 +3,7 @@ package edith.example.carnefresca;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,8 @@ public class CfGeneral extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    //
 
     public CfGeneral() {
         // Required empty public constructor
@@ -66,6 +69,11 @@ public class CfGeneral extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_cf_general, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
