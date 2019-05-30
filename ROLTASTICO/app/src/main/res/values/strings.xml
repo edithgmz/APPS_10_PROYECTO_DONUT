@@ -22,13 +22,16 @@
     <string name="action_eliminar">Eliminar</string>
 
     <string name="title_activity_rwby">Rwby</string>
-    <string name="title_activity_viejo_oeste">ViejoOeste</string>
-    <string name="title_activity_carne_fresca">CarneFresca</string>
+    <string name="title_activity_viejo_oeste">Viejo Oeste</string>
+    <string name="title_activity_carne_fresca">Carne Fresca</string>
+    <string name="title_activity_fichas">Fichas</string>
 
     <string name="conducir">Conducir</string>
     <string name="punter_a">Puntería</string>
+    <string name="fichas">Fichas</string>
 
     <string-array name="sp_val_cf">
+        <item> </item>
         <item>-5</item>
         <item>-4</item>
         <item>-3</item>
@@ -42,21 +45,25 @@
         <item>5</item>
     </string-array>
     <string-array name="sp_cue_cf">
+        <item> </item>
         <item>Dañado</item>
         <item>Sin daño</item>
     </string-array>
 
     <string-array name="sp_mel_rw">
+        <item> </item>
         <item>Agresividad</item>
         <item>Precisión</item>
         <item>Elegancia</item>
     </string-array>
     <string-array name="sp_ran_rw">
+        <item> </item>
         <item>Peso</item>
         <item>Energía</item>
         <item>Precisión</item>
     </string-array>
     <string-array name="sp_val_rw">
+        <item> </item>
         <item>0</item>
         <item>1</item>
         <item>2</item>
@@ -66,12 +73,14 @@
     </string-array>
 
     <string-array name="sp_cla_vo">
+        <item> </item>
         <item>Explorador</item>
         <item>Pistolero</item>
         <item>Predicador</item>
         <item>Tahúr</item>
     </string-array>
     <string-array name="sp_adq_vo">
+        <item> </item>
         <item>Vagabundo</item>
         <item>Pobre</item>
         <item>Propietario</item>
@@ -80,6 +89,7 @@
         <item>Rico</item>
     </string-array>
     <string-array name="sp_atr_vo">
+        <item> </item>
         <item>3</item>
         <item>4</item>
         <item>5</item>
@@ -98,6 +108,7 @@
         <item>18</item>
     </string-array>
     <string-array name="sp_bon_vo">
+        <item> </item>
         <item>-2</item>
         <item>-1</item>
         <item>0</item>

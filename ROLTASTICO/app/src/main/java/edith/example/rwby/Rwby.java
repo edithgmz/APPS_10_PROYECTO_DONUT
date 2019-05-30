@@ -1,6 +1,10 @@
 package edith.example.rwby;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,10 +17,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionMenu;
+import com.kosalgeek.android.photoutil.GalleryPhoto;
+import com.kosalgeek.android.photoutil.ImageLoader;
 
+import java.io.FileNotFoundException;
+
+import edith.example.datos.BaseDatos;
 import edith.example.roltastico.Dado;
 import edith.example.roltastico.R;
 
@@ -37,7 +47,16 @@ public class Rwby extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-    private String d6 = null;
+
+    private static int GALLERY_REQUEST = 2200;
+    private static Bitmap bRWImagen;
+    //general
+    private static ImageView imgVwRwPer;
+    //
+    private GalleryPhoto gpGaleria;
+    private String sRutaImagen;
+    //
+    private BaseDatos baseDatos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,20 +83,37 @@ public class Rwby extends AppCompatActivity {
         menuFlo =  findViewById(R.id.menuRw);
         menuFlo.setClosedOnTouchOutside(true);
 
-        /*
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                d6 = "" + (int) (Math.random() * 6 + 1); //1 a 6
-                Snackbar.make(view, "1D6: " + d6, Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        */
-
+        baseDatos = new BaseDatos(getApplicationContext());
+        //
+        gpGaleria = new GalleryPhoto(getApplicationContext());
     }
 
+    public void selecRwImagen(View v) {
+        //Toast.makeText(getApplicationContext(), v.getId() + "Abrir galería.", Toast.LENGTH_SHORT).show();
+        startActivityForResult(gpGaleria.openGalleryIntent(), GALLERY_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == GALLERY_REQUEST) {
+                Uri uriImagen = null;
+                if (data != null) {
+                    uriImagen = data.getData();
+                }
+                gpGaleria.setPhotoUri(uriImagen);
+                sRutaImagen = gpGaleria.getPath();
+                try {
+                    bRWImagen = ImageLoader.init().from(sRutaImagen).getBitmap();
+                    imgVwRwPer.setImageBitmap(bRWImagen);
+                    //Toast.makeText(getApplicationContext(), "" + uriImagen, Toast.LENGTH_LONG).show();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -95,6 +131,9 @@ public class Rwby extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.acRwGuardar) {
+            baseDatos.insertarRW("", "Marina Joyce", 1, 0, "Rubio", "Verde", "Tridente",
+                    3, 2, 2, 1, 3, 1, 100, 5, 3, 2, 1, "Amarillo",
+                    "Rosa", "Clones de sombra", "Artes marciales");
             Toast.makeText(this, "Guardado.", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.acRwEliminar) {
@@ -156,6 +195,7 @@ public class Rwby extends AppCompatActivity {
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1:
                     rootView = inflater.inflate(R.layout.fragment_rw_general, container, false);
+                    imgVwRwPer = rootView.findViewById(R.id.imgVwRwPer);
                     break;
                 case 2:
                     rootView = inflater.inflate(R.layout.fragment_rw_rasgos, container, false);

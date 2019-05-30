@@ -33,9 +33,9 @@ public class RWDatos {
 
     //ventaja
     private String strSem;
-    private String[] arrStrMod;
+    private String arrStrMod;
 
-    public RWDatos(String sImagen, String strNombre, int isFem, int isHum, String strCabello, String strOjos, String strArma, int iFue, int iVol, int iAgi, int iPer, int iRes, int iDis, int iSalud, int iAura, int iCapa, int iMelee, int iDista, String strDust1, String strDust2, String strSem, String[] arrStrMod) {
+    public RWDatos(String sImagen, String strNombre, int isFem, int isHum, String strCabello, String strOjos, String strArma, int iFue, int iVol, int iAgi, int iPer, int iRes, int iDis, int iSalud, int iAura, int iCapa, int iMelee, int iDista, String strDust1, String strDust2, String strSem, String arrStrMod) {
         this.sImagen = sImagen;
         this.strNombre = strNombre;
         this.isFem = isFem;
@@ -220,11 +220,11 @@ public class RWDatos {
         this.strSem = strSem;
     }
 
-    public String[] getArrStrMod() {
+    public String getArrStrMod() {
         return arrStrMod;
     }
 
-    public void setArrStrMod(String[] arrStrMod) {
+    public void setArrStrMod(String arrStrMod) {
         this.arrStrMod = arrStrMod;
     }
 

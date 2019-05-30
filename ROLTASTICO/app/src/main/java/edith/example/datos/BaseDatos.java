@@ -5,8 +5,13 @@ package edith.example.datos;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+
+import edith.example.fichas.Ficha;
 
 public class BaseDatos extends SQLiteOpenHelper {
     private static final String CREAR_TABLA_CF = "CREATE TABLE cf(_id INTEGER PRIMARY KEY AUTOINCREMENT, img TEXT, nom TEXT, rasfis TEXT, isfem INTEGER, cabeza INTEGER, brader TEXT, braizq TEXT, torso TEXT, piernas TEXT, based INTEGER, peld INTEGER, pelar INTEGER, res INTEGER, cond INTEGER, punt INTEGER, sigi INTEGER, mani INTEGER, arr INTEGER, ocen INTEGER, pra INTEGER, inti INTEGER, conv INTEGER, aten INTEGER, orie INTEGER, danio INTEGER, tens INTEGER)";
@@ -151,12 +156,239 @@ public class BaseDatos extends SQLiteOpenHelper {
         bd.insert("vo", null, cv);
     }
 
-    //Obtener lista de CF
+    //Obtener datos CF
+    public ArrayList<CFDatos> datosCF() {
+        ArrayList<CFDatos> alCF = new ArrayList<>();
+        //Se crea el cursor ejecutando el query para leer los datos de la tabla
+        Cursor CF = bd.rawQuery(LEER_TABLA_CF, null);
+        if (CF != null && CF.getCount() > 0) {
+            CF.moveToFirst();
+            do {
+                //Asignar valor de las variables para crear objeto CF
+                String img = CF.getString(CF.getColumnIndex("img"));
+                String nom = CF.getString(CF.getColumnIndex("nom"));
+                String rasfis = CF.getString(CF.getColumnIndex("rasfis"));
+                int isfem = CF.getInt(CF.getColumnIndex("isfem"));
+                String cabeza = CF.getString(CF.getColumnIndex("cabeza"));
+                String brader = CF.getString(CF.getColumnIndex("brader"));
+                String braizq = CF.getString(CF.getColumnIndex("braizq"));
+                String torso = CF.getString(CF.getColumnIndex("torso"));
+                String piernas = CF.getString(CF.getColumnIndex("piernas"));
+                int based = CF.getInt(CF.getColumnIndex("based"));
+                int peld = CF.getInt(CF.getColumnIndex("peld"));
+                int pelar = CF.getInt(CF.getColumnIndex("pelar"));
+                int res = CF.getInt(CF.getColumnIndex("res"));
+                int cond = CF.getInt(CF.getColumnIndex("cond"));
+                int punt = CF.getInt(CF.getColumnIndex("punt"));
+                int sigi = CF.getInt(CF.getColumnIndex("sigi"));
+                int mani = CF.getInt(CF.getColumnIndex("mani"));
+                int arr = CF.getInt(CF.getColumnIndex("arr"));
+                int ocen = CF.getInt(CF.getColumnIndex("ocen"));
+                int pra = CF.getInt(CF.getColumnIndex("pra"));
+                int inti = CF.getInt(CF.getColumnIndex("inti"));
+                int conv = CF.getInt(CF.getColumnIndex("conv"));
+                int aten = CF.getInt(CF.getColumnIndex("aten"));
+                int orie = CF.getInt(CF.getColumnIndex("orie"));
+                int danio = CF.getInt(CF.getColumnIndex("danio"));
+                int tens = CF.getInt(CF.getColumnIndex("tens"));
+                //Se añaden los atributos al objeto
+                alCF.add(new CFDatos(img, nom, rasfis, isfem, cabeza, brader,
+                        braizq, torso, piernas, based, peld, pelar, res,
+                        cond, punt, sigi, mani, arr, ocen, pra, inti, conv,
+                        aten, orie, danio, tens));
+            } while (CF.moveToNext());
+        }
+        //Cerrar cursor
+        if (CF != null) {
+            CF.close();
+        }
+        //Devuelve el objeto
+        return alCF;
+    }
 
+    //Obtener datos RW
+    public ArrayList<RWDatos> datosRW() {
+        ArrayList<RWDatos> alRW = new ArrayList<>();
+        //Se crea el cursor ejecutando el query para leer los datos de la tabla
+        Cursor RW = bd.rawQuery(LEER_TABLA_RW, null);
+        if (RW != null && RW.getCount() > 0) {
+            RW.moveToFirst();
+            do {
+                //Asignar valor de las variables para crear objeto RW
+                String img = RW.getString(RW.getColumnIndex("img"));
+                String nom = RW.getString(RW.getColumnIndex("nom"));
+                int isfem = RW.getInt(RW.getColumnIndex("isfem"));
+                int ishum = RW.getInt(RW.getColumnIndex("ishum"));
+                String cabel = RW.getString(RW.getColumnIndex("cabel"));
+                String ojos = RW.getString(RW.getColumnIndex("ojos"));
+                String arma = RW.getString(RW.getColumnIndex("arma"));
+                int fue = RW.getInt(RW.getColumnIndex("fue"));
+                int vol = RW.getInt(RW.getColumnIndex("vol"));
+                int agi = RW.getInt(RW.getColumnIndex("agi"));
+                int per = RW.getInt(RW.getColumnIndex("per"));
+                int res = RW.getInt(RW.getColumnIndex("res"));
+                int dis = RW.getInt(RW.getColumnIndex("dis"));
+                int salud = RW.getInt(RW.getColumnIndex("salud"));
+                int aura = RW.getInt(RW.getColumnIndex("aura"));
+                int capa = RW.getInt(RW.getColumnIndex("capa"));
+                int melee = RW.getInt(RW.getColumnIndex("melee"));
+                int dist = RW.getInt(RW.getColumnIndex("dist"));
+                String dust1 = RW.getString(RW.getColumnIndex("dust1"));
+                String dust2 = RW.getString(RW.getColumnIndex("dust2"));
+                String semb = RW.getString(RW.getColumnIndex("semb"));
+                String mod = RW.getString(RW.getColumnIndex("mod"));
+                //Se añaden los atributos al objeto
+                alRW.add(new RWDatos(img, nom, isfem, ishum, cabel, ojos,
+                        arma, fue, vol, agi, per, res, dis, salud, aura,
+                        capa, melee, dist, dust1, dust2, semb, mod));
+            } while (RW.moveToNext());
+        }
+        //Cerrar cursor
+        if (RW != null) {
+            RW.close();
+        }
+        //Devuelve el objeto
+        return alRW;
+    }
 
-    //Obtener lista de RW
+    //Obtener datos VO
+    public ArrayList<VODatos> datosVO() {
+        ArrayList<VODatos> alVO = new ArrayList<>();
+        //Se crea el cursor ejecutando el query para leer los datos de la tabla
+        Cursor VO = bd.rawQuery(LEER_TABLA_VO, null);
+        if (VO != null && VO.getCount() > 0) {
+            VO.moveToFirst();
+            do {
+                //Asignar valor de las variables para crear objeto VO
+                String img = VO.getString(VO.getColumnIndex("img"));
+                String nom = VO.getString(VO.getColumnIndex("nom"));
+                String clase = VO.getString(VO.getColumnIndex("clase"));
+                String nivadq = VO.getString(VO.getColumnIndex("nivadq"));
+                int px = VO.getInt(VO.getColumnIndex("px"));
+                int nivel = VO.getInt(VO.getColumnIndex("nivel"));
+                String trans = VO.getString(VO.getColumnIndex("trans"));
+                String tal1 = VO.getString(VO.getColumnIndex("tal1"));
+                String tal2 = VO.getString(VO.getColumnIndex("tal2"));
+                int isfem = VO.getInt(VO.getColumnIndex("isfem"));
+                int stdfue = VO.getInt(VO.getColumnIndex("stdfue"));
+                int stddes = VO.getInt(VO.getColumnIndex("stddes"));
+                int stdcon = VO.getInt(VO.getColumnIndex("stdcon"));
+                int stdint = VO.getInt(VO.getColumnIndex("stdint"));
+                int stdsab = VO.getInt(VO.getColumnIndex("stdsab"));
+                int stdcar = VO.getInt(VO.getColumnIndex("stdcar"));
+                int modfue = VO.getInt(VO.getColumnIndex("modfue"));
+                int moddes = VO.getInt(VO.getColumnIndex("moddes"));
+                int modcon = VO.getInt(VO.getColumnIndex("modcon"));
+                int modint = VO.getInt(VO.getColumnIndex("modint"));
+                int modsab = VO.getInt(VO.getColumnIndex("modsab"));
+                int modcar = VO.getInt(VO.getColumnIndex("modcar"));
+                int alerta = VO.getInt(VO.getColumnIndex("alerta"));
+                int comun = VO.getInt(VO.getColumnIndex("comun"));
+                int manip = VO.getInt(VO.getColumnIndex("manip"));
+                int erudi = VO.getInt(VO.getColumnIndex("erudi"));
+                int subter = VO.getInt(VO.getColumnIndex("subter"));
+                int superv = VO.getInt(VO.getColumnIndex("superv"));
+                int pvtot = VO.getInt(VO.getColumnIndex("pvtot"));
+                int pvact = VO.getInt(VO.getColumnIndex("pvact"));
+                int def = VO.getInt(VO.getColumnIndex("def"));
+                int atq = VO.getInt(VO.getColumnIndex("atq"));
+                int inst = VO.getInt(VO.getColumnIndex("inst"));
+                int atqarm = VO.getInt(VO.getColumnIndex("atqarm"));
+                int danarm = VO.getInt(VO.getColumnIndex("danarm"));
+                int traarm = VO.getInt(VO.getColumnIndex("traarm"));
+                String nomarm = VO.getString(VO.getColumnIndex("nomarm"));
+                String obj1 = VO.getString(VO.getColumnIndex("obj1"));
+                String obj2 = VO.getString(VO.getColumnIndex("obj2"));
+                String obj3 = VO.getString(VO.getColumnIndex("obj3"));
+                //Se añaden los atributos al objeto
+                alVO.add(new VODatos(img, nom, clase, nivadq, px, nivel,
+                        trans, tal1, tal2, isfem, stdfue, stddes, stdcon,
+                        stdint, stdsab, stdcar, modfue, moddes, modcon, modint,
+                        modsab, modcar, alerta, comun, manip, erudi,
+                        subter, superv, pvtot, pvact, def, atq, inst, nomarm,
+                        atqarm, danarm, traarm, obj1, obj2, obj3));
+            } while (VO.moveToNext());
+        }
+        //Cerrar cursor
+        if (VO != null) {
+            VO.close();
+        }
+        //Devuelve el objeto
+        return alVO;
+    }
 
+    //Obtener fichas
+    public ArrayList<Ficha> fichas() {
+        ArrayList<Ficha> alFicha = new ArrayList<>();
+        //Se crean los cursores ejecutando los queries para leer los datos de las tablas
+        Cursor CF = bd.rawQuery(LEER_TABLA_CF, null);
+        Cursor RW = bd.rawQuery(LEER_TABLA_RW, null);
+        Cursor VO = bd.rawQuery(LEER_TABLA_VO, null);
+        if (CF != null && CF.getCount() > 0) {
+            CF.moveToFirst();
+            do {
+                //Asignar valor de las variables para crear objeto Ficha
+                String imgCF = CF.getString(CF.getColumnIndex("img"));
+                String nomCF = CF.getString(CF.getColumnIndex("nom"));
+                String sisCF = "Carne Fresca";
+                //Se añaden los atributos al objeto
+                alFicha.add(new Ficha(imgCF, nomCF, sisCF));
+            } while (CF.moveToNext());
+        }
+        if (RW != null && RW.getCount() > 0) {
+            RW.moveToFirst();
+            do {
+                //Asignar valor de las variables para crear objeto Ficha
+                String imgRW = RW.getString(RW.getColumnIndex("img"));
+                String nomRW = RW.getString(RW.getColumnIndex("nom"));
+                String sisRW = "Rwby";
+                //Se añaden los atributos al objeto
+                alFicha.add(new Ficha(imgRW, nomRW, sisRW));
+            } while (RW.moveToNext());
+        }
+        if (VO != null && VO.getCount() > 0) {
+            VO.moveToFirst();
+            do {
+                //Asignar valor de las variables para crear objeto Ficha
+                String imgVO = VO.getString(VO.getColumnIndex("img"));
+                String nomVO = VO.getString(VO.getColumnIndex("nom"));
+                String sisVO = "Viejo Oeste";
+                //Se añaden los atributos al objeto
+                alFicha.add(new Ficha(imgVO, nomVO, sisVO));
+            } while (VO.moveToNext());
+        }
+        //Cerrar cursor
+        if (CF != null) {
+            CF.close();
+        }
+        if (RW != null) {
+            RW.close();
+        }
+        if (VO != null) {
+            VO.close();
+        }
+        //Devuelve la ficha
+        return alFicha;
+    }
 
-    //Obtener lista de VO
+    //Eliminar registro en CF
+    public void eliminarCF(String nom, String rasfis) {
+        String[] args = new String[]{nom, rasfis};
+        String cond = "nom=? AND rasfis=?";
+        bd.delete("cf", cond, args);
+    }
 
+    //Eliminar registro en RW
+    public void eliminarRW(String nom, String cabel) {
+        String[] args = new String[]{nom, cabel};
+        String cond = "nom=? AND cabel=?";
+        bd.delete("rw", cond, args);
+    }
+
+    //Eliminar registro en VO
+    public void eliminarVO(String nom, String clase) {
+        String[] args = new String[]{nom, clase};
+        String cond = "nom=? AND clase=?";
+        bd.delete("vo", cond, args);
+    }
 }

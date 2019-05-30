@@ -1,6 +1,10 @@
 package edith.example.viejooeste;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,10 +17,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionMenu;
+import com.kosalgeek.android.photoutil.GalleryPhoto;
+import com.kosalgeek.android.photoutil.ImageLoader;
 
+import java.io.FileNotFoundException;
+
+import edith.example.datos.BaseDatos;
 import edith.example.roltastico.Dado;
 import edith.example.roltastico.R;
 
@@ -37,6 +47,16 @@ public class ViejoOeste extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+
+    private static int GALLERY_REQUEST = 2200;
+    private static Bitmap bVOImagen;
+    //general
+    private static ImageView imgVwVoPer;
+    //
+    private GalleryPhoto gpGaleria;
+    private String sRutaImagen;
+    //
+    private BaseDatos baseDatos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,24 +79,40 @@ public class ViejoOeste extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-       /* fMenuVO = findViewById(R.id.menuCF);
-        fMenuVO.setClosedOnTouchOutside(true);
-        */
         menuFVO =  findViewById(R.id.menuVO);
         menuFVO.setClosedOnTouchOutside(true);
 
-        /*
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
-
+        baseDatos = new BaseDatos(getApplicationContext());
+        //
+        gpGaleria = new GalleryPhoto(getApplicationContext());
     }
 
+    public void selecVoImagen(View v) {
+        //Toast.makeText(getApplicationContext(), v.getId() + "Abrir galería.", Toast.LENGTH_SHORT).show();
+        startActivityForResult(gpGaleria.openGalleryIntent(), GALLERY_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == GALLERY_REQUEST) {
+                Uri uriImagen = null;
+                if (data != null) {
+                    uriImagen = data.getData();
+                }
+                gpGaleria.setPhotoUri(uriImagen);
+                sRutaImagen = gpGaleria.getPath();
+                try {
+                    bVOImagen = ImageLoader.init().from(sRutaImagen).getBitmap();
+                    imgVwVoPer.setImageBitmap(bVOImagen);
+                    //Toast.makeText(getApplicationContext(), "" + uriImagen, Toast.LENGTH_LONG).show();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -156,6 +192,7 @@ public class ViejoOeste extends AppCompatActivity {
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1:
                     rootView = inflater.inflate(R.layout.fragment_vo_general, container, false);
+                    imgVwVoPer = rootView.findViewById(R.id.imgVwVoPer);
                     break;
                 case 2:
                     rootView = inflater.inflate(R.layout.fragment_vo_rasgos, container, false);

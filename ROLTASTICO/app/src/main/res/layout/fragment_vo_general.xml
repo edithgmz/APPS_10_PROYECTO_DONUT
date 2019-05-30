@@ -6,9 +6,10 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,7 +22,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:clickable="true"
-                android:src="@drawable/cam" />
+                android:onClick="selecVoImagen"
+                android:src="@drawable/cam"
+                tools:ignore="OnClick" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -246,7 +249,7 @@
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
 
 </FrameLayout>

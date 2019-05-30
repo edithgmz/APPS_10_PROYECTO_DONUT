@@ -22,7 +22,7 @@
             android:textSize="16sp" />
 
         <SeekBar
-            android:id="@+id/sBarDaño"
+            android:id="@+id/sBarDanio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:max="6" />

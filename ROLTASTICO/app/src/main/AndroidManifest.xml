@@ -3,7 +3,6 @@
     package="edith.example.roltastico">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
 
     <application
         android:allowBackup="true"
@@ -11,13 +10,23 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name="edith.example.fichas.Fichas"
+            android:label="@string/title_activity_fichas"
+            android:parentActivityName=".Principal">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edith.example.roltastico.Principal" />
+        </activity>
         <activity
             android:name="edith.example.viejooeste.ViejoOeste"
             android:label="@string/title_activity_viejo_oeste"
-            android:windowSoftInputMode="stateHidden"
             android:parentActivityName=".Principal"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edith.example.roltastico.Principal" />
@@ -25,9 +34,9 @@
         <activity
             android:name="edith.example.carnefresca.CarneFresca"
             android:label="@string/title_activity_carne_fresca"
-            android:windowSoftInputMode="stateHidden"
             android:parentActivityName=".Principal"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edith.example.roltastico.Principal" />
@@ -35,9 +44,9 @@
         <activity
             android:name="edith.example.rwby.Rwby"
             android:label="@string/title_activity_rwby"
-            android:windowSoftInputMode="stateHidden"
             android:parentActivityName=".Principal"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edith.example.roltastico.Principal" />

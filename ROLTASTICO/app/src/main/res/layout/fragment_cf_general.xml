@@ -22,8 +22,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:clickable="true"
-                android:onClick="selecImagen"
-                app:srcCompat="@drawable/cam" />
+                android:onClick="selecCfImagen"
+                app:srcCompat="@drawable/cam"
+                tools:ignore="OnClick" />
 
             <TextView
                 android:id="@+id/txtVwCfImgRuta"

@@ -681,6 +681,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:enabled="false"
                     android:hint="10"
                     android:inputType="number"
                     android:textAlignment="center"

@@ -143,7 +143,7 @@
             app:layout_constraintVertical_bias="0.272" />
 
         <Spinner
-            android:id="@+id/spBrDer"
+            android:id="@+id/spCfBrDer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -191,11 +191,11 @@
             app:layout_constraintEnd_toStartOf="@+id/txt5"
             app:layout_constraintHorizontal_bias="0.832"
             app:layout_constraintStart_toStartOf="@+id/img"
-            app:layout_constraintTop_toBottomOf="@+id/spBrDer"
+            app:layout_constraintTop_toBottomOf="@+id/spCfBrDer"
             app:layout_constraintVertical_bias="0.329" />
 
         <Spinner
-            android:id="@+id/spPiernas"
+            android:id="@+id/spCfPiernas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

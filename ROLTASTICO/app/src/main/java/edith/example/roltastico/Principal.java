@@ -13,13 +13,14 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import edith.example.carnefresca.CarneFresca;
+import edith.example.fichas.Fichas;
 import edith.example.rwby.Rwby;
 import edith.example.viejooeste.ViejoOeste;
 
 public class Principal extends AppCompatActivity {
     private final int PERMISO_READ_EXTERNAL_STORAGE = 1111;
     private Button[] btnMenu;
-    private Intent inDados, inRW, inVO, inCF;
+    private Intent inFichas, inRW, inVO, inCF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +30,10 @@ public class Principal extends AppCompatActivity {
                 findViewById(R.id.btnRW),
                 findViewById(R.id.btnVO),
                 findViewById(R.id.btnCF),
-                // findViewById(R.id.btnDados)
+                findViewById(R.id.btnFichas)
         };
 
-        // inDados = new Intent(this, Dados.class);
+        inFichas = new Intent(this, Fichas.class);
         inRW = new Intent(this, Rwby.class);
         inVO = new Intent(this, ViejoOeste.class);
         inCF = new Intent(this, CarneFresca.class);
@@ -66,6 +67,9 @@ public class Principal extends AppCompatActivity {
                 break;
             case R.id.btnCF:
                 startActivity(inCF);
+                break;
+            case R.id.btnFichas:
+                startActivity(inFichas);
                 break;
         }
     }

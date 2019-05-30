@@ -17,6 +17,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionMenu;
@@ -29,7 +34,9 @@ import edith.example.datos.BaseDatos;
 import edith.example.roltastico.Dado;
 import edith.example.roltastico.R;
 
-public class CarneFresca extends AppCompatActivity {
+import static edith.example.carnefresca.CfGeneral.OnFragmentInteractionListener;
+
+public class CarneFresca extends AppCompatActivity implements OnFragmentInteractionListener {
 
     private FloatingActionMenu menuFlo;
     /**
@@ -50,8 +57,21 @@ public class CarneFresca extends AppCompatActivity {
     private static int GALLERY_REQUEST = 2200;
     //
     private GalleryPhoto gpGaleria;
+    private static Bitmap bCFImagen;
+    //general
+    private static ImageView imgVwCfPer;
     //
     private BaseDatos baseDatos;
+    private static EditText edtTxtCfNom, edtTxtCfRasFis;
+    private static RadioButton rdBtnCfFem, rdBtnCfMasc;
+    //rasgos
+    private static Spinner spCfBasDa, spCfPelDes, spCfPelArm, spCfRes, spCfCond, spCfPunt, spCfSigi, spCfArram, spCfManit,
+            spCfPrAux, spCfOcEnc, spCfInti, spCfConv, spCfAten, spCfOrie;
+    //cuerpo
+    private static Spinner spCfCabeza, spCfTorso, spCfBrIzq, spCfBrDer, spCfPiernas;
+    //salud
+    private static SeekBar sBarDanio, sBarTen;
+    private String sRutaImagen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,23 +97,13 @@ public class CarneFresca extends AppCompatActivity {
         menuFlo =  findViewById(R.id.menuCF);
         menuFlo.setClosedOnTouchOutside(true);
 
-        /*
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
-
-        baseDatos = new BaseDatos(getApplicationContext());
+        baseDatos = new BaseDatos(this);
         //
-        gpGaleria = new GalleryPhoto(getApplicationContext());
+        gpGaleria = new GalleryPhoto(this);
     }
 
 
-    public void selecImagen(View v) {
+    public void selecCfImagen(View v) {
         //Toast.makeText(getApplicationContext(), v.getId() + "Abrir galería.", Toast.LENGTH_SHORT).show();
         startActivityForResult(gpGaleria.openGalleryIntent(), GALLERY_REQUEST);
     }
@@ -108,11 +118,11 @@ public class CarneFresca extends AppCompatActivity {
                     uriImagen = data.getData();
                 }
                 gpGaleria.setPhotoUri(uriImagen);
-                String sRutaImagen = gpGaleria.getPath();
+                sRutaImagen = gpGaleria.getPath();
                 try {
-                    Bitmap bImagen = ImageLoader.init().from(sRutaImagen).getBitmap();
-                    //imgVwCfPer.setImageBitmap(bImagen);
-                    Toast.makeText(getApplicationContext(), sRutaImagen + "\n\n" + uriImagen, Toast.LENGTH_LONG).show();
+                    bCFImagen = ImageLoader.init().from(sRutaImagen).getBitmap();
+                    imgVwCfPer.setImageBitmap(bCFImagen);
+                    //Toast.makeText(getApplicationContext(), "" + uriImagen, Toast.LENGTH_LONG).show();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -133,14 +143,30 @@ public class CarneFresca extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        int isfem;
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.acCfGuardar) {
-
+            if (rdBtnCfFem.isChecked())
+                isfem = 1;
+            else
+                isfem = 0;
+            baseDatos.insertarCF(sRutaImagen, edtTxtCfNom.getText().toString(), edtTxtCfRasFis.getText().toString(), isfem,
+                    spCfCabeza.getSelectedItem().toString(), spCfBrDer.getSelectedItem().toString(), spCfBrIzq.getSelectedItem().toString(),
+                    spCfTorso.getSelectedItem().toString(), spCfPiernas.getSelectedItem().toString(), Integer.parseInt(spCfBasDa.getSelectedItem().toString()),
+                    Integer.parseInt(spCfPelDes.getSelectedItem().toString()), Integer.parseInt(spCfPelArm.getSelectedItem().toString()),
+                    Integer.parseInt(spCfRes.getSelectedItem().toString()), Integer.parseInt(spCfCond.getSelectedItem().toString()),
+                    Integer.parseInt(spCfPunt.getSelectedItem().toString()), Integer.parseInt(spCfSigi.getSelectedItem().toString()),
+                    Integer.parseInt(spCfManit.getSelectedItem().toString()), Integer.parseInt(spCfArram.getSelectedItem().toString()),
+                    Integer.parseInt(spCfOcEnc.getSelectedItem().toString()), Integer.parseInt(spCfPrAux.getSelectedItem().toString()),
+                    Integer.parseInt(spCfInti.getSelectedItem().toString()), Integer.parseInt(spCfConv.getSelectedItem().toString()),
+                    Integer.parseInt(spCfAten.getSelectedItem().toString()),
+                    Integer.parseInt(spCfOrie.getSelectedItem().toString()), sBarDanio.getProgress(), sBarTen.getProgress());
             Toast.makeText(this, "Guardado.", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.acCfEliminar) {
-            Toast.makeText(this, "Eliminar.", Toast.LENGTH_SHORT).show();
+            baseDatos.eliminarCF(edtTxtCfNom.getText().toString(), edtTxtCfRasFis.getText().toString());
+            Toast.makeText(this, "Eliminado.", Toast.LENGTH_SHORT).show();
             return true;
         }
 
@@ -180,6 +206,12 @@ public class CarneFresca extends AppCompatActivity {
         Toast.makeText(this, str, Toast.LENGTH_LONG).show();
     }
 
+    @Override
+    public Bitmap getCfImagen() {
+        return bCFImagen;
+    }
+
+
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -212,15 +244,42 @@ public class CarneFresca extends AppCompatActivity {
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1:
                     rootView = inflater.inflate(R.layout.fragment_cf_general, container, false);
+                    imgVwCfPer = rootView.findViewById(R.id.imgVwCfPer);
+                    edtTxtCfNom = rootView.findViewById(R.id.edtTxtCfNom);
+                    edtTxtCfRasFis = rootView.findViewById(R.id.edtTxtCfRasFis);
+                    rdBtnCfFem = rootView.findViewById(R.id.rdBtnCfFem);
+                    rdBtnCfMasc = rootView.findViewById(R.id.rdBtnCfMasc);
                     break;
                 case 2:
                     rootView = inflater.inflate(R.layout.fragment_cf_rasgos, container, false);
+                    spCfBasDa = rootView.findViewById(R.id.spCfBasDa);
+                    spCfPelDes = rootView.findViewById(R.id.spCfPelDes);
+                    spCfPelArm = rootView.findViewById(R.id.spCfPelArm);
+                    spCfRes = rootView.findViewById(R.id.spCfRes);
+                    spCfCond = rootView.findViewById(R.id.spCfCond);
+                    spCfPunt = rootView.findViewById(R.id.spCfPunt);
+                    spCfSigi = rootView.findViewById(R.id.spCfSigi);
+                    spCfArram = rootView.findViewById(R.id.spCfArram);
+                    spCfManit = rootView.findViewById(R.id.spCfManit);
+                    spCfPrAux = rootView.findViewById(R.id.spCfPrAux);
+                    spCfOcEnc = rootView.findViewById(R.id.spCfOcEnc);
+                    spCfInti = rootView.findViewById(R.id.spCfInti);
+                    spCfConv = rootView.findViewById(R.id.spCfConv);
+                    spCfAten = rootView.findViewById(R.id.spCfAten);
+                    spCfOrie = rootView.findViewById(R.id.spCfOrie);
                     break;
                 case 3:
                     rootView = inflater.inflate(R.layout.fragment_cf_cuerpo, container, false);
+                    spCfCabeza = rootView.findViewById(R.id.spCfCabeza);
+                    spCfTorso = rootView.findViewById(R.id.spCfTorso);
+                    spCfBrIzq = rootView.findViewById(R.id.spCfBrIzq);
+                    spCfBrDer = rootView.findViewById(R.id.spCfBrDer);
+                    spCfPiernas = rootView.findViewById(R.id.spCfPiernas);
                     break;
                 case 4:
                     rootView = inflater.inflate(R.layout.fragment_cf_salud, container, false);
+                    sBarDanio = rootView.findViewById(R.id.sBarDanio);
+                    sBarTen = rootView.findViewById(R.id.sBarTen);
                     break;
             }
             return rootView;
