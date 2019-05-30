@@ -17,6 +17,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -24,6 +28,7 @@ import com.github.clans.fab.FloatingActionMenu;
 import com.kosalgeek.android.photoutil.GalleryPhoto;
 import com.kosalgeek.android.photoutil.ImageLoader;
 
+import edith.example.datos.RWDatos;
 import java.io.FileNotFoundException;
 
 import edith.example.datos.BaseDatos;
@@ -32,6 +37,7 @@ import edith.example.roltastico.R;
 
 public class Rwby extends AppCompatActivity {
     FloatingActionMenu menuFlo;
+    RWDatos rwDatos;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -115,6 +121,7 @@ public class Rwby extends AppCompatActivity {
         }
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -173,6 +180,7 @@ public class Rwby extends AppCompatActivity {
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
+        private AdapterView.OnItemSelectedListener mele;
 
         public PlaceholderFragment() {
         }
@@ -199,6 +207,106 @@ public class Rwby extends AppCompatActivity {
                     break;
                 case 2:
                     rootView = inflater.inflate(R.layout.fragment_rw_rasgos, container, false);
+                    Spinner spMel = rootView.findViewById(R.id.spMelee);
+                    final TextView txtMel = rootView.findViewById(R.id.txtRwMel);
+                    final TextView txtRan = rootView.findViewById(R.id.txtRwRan);
+                    final Spinner spnStr = rootView.findViewById(R.id.spRwFue);
+                    final Spinner spnEnd = rootView.findViewById(R.id.spRwRes);
+                    Spinner spnPer = rootView.findViewById(R.id.spRwPer);
+                    final Spinner spnDis = rootView.findViewById(R.id.spRwDis);
+                    final Spinner spnAgi = rootView.findViewById(R.id.spRwAgi);
+                    Spinner spnRan = rootView.findViewById(R.id.spRanged);
+                    final Spinner spnWil = rootView.findViewById(R.id.spRwVol);
+                    //resistencia genera campos
+                    final TextView txtSal = rootView.findViewById(R.id.txtRwSalMax);
+                    spnEnd.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            txtSal.setText(position+1+"");
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+                    //per genera aura
+
+                    final TextView txtAu = rootView.findViewById(R.id.txtRwAurMax);
+                    spnPer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            txtAu.setText(position+10+"");
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+
+                    final TextView txtCap = rootView.findViewById(R.id.txtRwCapMax);
+                    spnDis.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            txtCap.setText(position+1+"");
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+                    mele = new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        int res =-1;
+                        switch (position){
+                            case 0:
+                                res = spnStr.getSelectedItemPosition()+spnEnd.getSelectedItemPosition();
+                                break;
+                            case 1:
+                                res = spnStr.getSelectedItemPosition()+spnAgi.getSelectedItemPosition();
+                                break;
+                            case 2:
+                                res = spnStr.getSelectedItemPosition()+spnDis.getSelectedItemPosition();
+                                break;
+                        }
+                        txtMel.setText(res+"");
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                };
+                    spMel.setOnItemSelectedListener(mele);
+
+                    spnRan.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            int res =-1;
+                            switch (position){
+                                case 0:
+                                    res = spnStr.getSelectedItemPosition()+spnEnd.getSelectedItemPosition();
+                                    break;
+                                case 1:
+                                    res = spnStr.getSelectedItemPosition()+spnWil.getSelectedItemPosition();
+                                    break;
+                                case 2:
+                                    res = spnStr.getSelectedItemPosition()+spnDis.getSelectedItemPosition();
+                                    break;
+                            }
+                            txtRan.setText(res+"");
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+
+
                     break;
                 case 3:
                     rootView = inflater.inflate(R.layout.fragment_rw_dust, container, false);

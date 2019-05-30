@@ -17,12 +17,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionMenu;
 import com.kosalgeek.android.photoutil.GalleryPhoto;
 import com.kosalgeek.android.photoutil.ImageLoader;
+
+import org.w3c.dom.Text;
 
 import java.io.FileNotFoundException;
 
@@ -196,6 +201,19 @@ public class ViejoOeste extends AppCompatActivity {
                     break;
                 case 2:
                     rootView = inflater.inflate(R.layout.fragment_vo_rasgos, container, false);
+                    final Spinner spnDes = rootView.findViewById(R.id.spDesStd);
+                    final TextView txtPvTot = rootView.findViewById(R.id.edtPvTot);
+                    spnDes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            txtPvTot.setText(14-spnDes.getSelectedItemPosition()-3+"");
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                     break;
                 case 3:
                     rootView = inflater.inflate(R.layout.fragment_vo_items, container, false);

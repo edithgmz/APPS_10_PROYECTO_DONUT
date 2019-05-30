@@ -294,8 +294,8 @@
                         android:layout_height="match_parent"
                         android:background="?android:attr/listDivider" />
 
-                    <EditText
-                        android:id="@+id/edtTxtRwSalMax"
+                    <TextView
+                        android:id="@+id/txtRwSalMax"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -359,8 +359,8 @@
                         android:layout_height="match_parent"
                         android:background="?android:attr/listDivider" />
 
-                    <EditText
-                        android:id="@+id/edtTxtRwAurMax"
+                    <TextView
+                        android:id="@+id/txtRwAurMax"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -424,8 +424,8 @@
                         android:layout_height="match_parent"
                         android:background="?android:attr/listDivider" />
 
-                    <EditText
-                        android:id="@+id/edtTxtRwCapMax"
+                    <TextView
+                        android:id="@+id/txtRwCapMax"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -463,8 +463,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/edtTxtRwMel"
+                    <TextView
+                        android:id="@+id/txtRwMel"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -513,8 +513,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/edtTxtRwRan"
+                    <TextView
+                        android:id="@+id/txtRwRan"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
