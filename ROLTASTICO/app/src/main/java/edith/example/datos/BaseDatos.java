@@ -14,12 +14,12 @@ import java.util.ArrayList;
 import edith.example.fichas.Ficha;
 
 public class BaseDatos extends SQLiteOpenHelper {
-    private static final String CREAR_TABLA_CF = "CREATE TABLE cf(_id INTEGER PRIMARY KEY AUTOINCREMENT, img TEXT, nom TEXT, rasfis TEXT, isfem INTEGER, cabeza INTEGER, brader TEXT, braizq TEXT, torso TEXT, piernas TEXT, based INTEGER, peld INTEGER, pelar INTEGER, res INTEGER, cond INTEGER, punt INTEGER, sigi INTEGER, mani INTEGER, arr INTEGER, ocen INTEGER, pra INTEGER, inti INTEGER, conv INTEGER, aten INTEGER, orie INTEGER, danio INTEGER, tens INTEGER)";
-    private static final String CREAR_TABLA_RW = "CREATE TABLE rw(_id INTEGER PRIMARY KEY AUTOINCREMENT, img TEXT, nom TEXT, isfem INTEGER, ishum INTEGER, cabel TEXT, ojos TEXT, arma TEXT, fue INTEGER, vol INTEGER, agi INTEGER, per INTEGER, res INTEGER, dis INTEGER, salud INTEGER, aura INTEGER, capa INTEGER, melee INTEGER, dist TEXT, dust1 TEXT, dust2 TEXT, semb TEXT, mod TEXT)";
-    private static final String CREAR_TABLA_VO = "CREATE TABLE vo(_id INTEGER PRIMARY KEY AUTOINCREMENT, img TEXT, nom TEXT, clase TEXT, nivadq TEXT, px INTEGER, nivel INTEGER, trans TEXT, tal1 TEXT, tal2 TEXT, isfem INTEGER, stdfue INTEGER, stddes INTEGER, stdcon INTEGER, stdint INTEGER, stdsab INTEGER, stdcar INTEGER, modfue INTEGER, moddes INTEGER, modcon INTEGER, modint INTEGER, modsab INTEGER, modcar INTEGER, alerta INTEGER, comun INTEGER, manip INTEGER, erudi INTEGER, subter INTEGER, superv INTEGER, pvtot INTEGER, pvact INTEGER, def INTEGER, atq INTEGER, inst INTEGER, mov INTEGER, atqarm INTEGER, danarm INTEGER, traarm INTEGER, nomarm TEXT, obj1 TEXT, obj2 TEXT, obj3 TEXT)";
-    private static final String LEER_TABLA_CF = "SELECT _id, img, nom, rasfis, isfem, cabeza, brader, braizq, torso, piernas, based, peld, pelar, res, cond, punt, sigi, mani, arr, ocen, pra, inti, conv, aten, orie, danio, tens FROM cf";
-    private static final String LEER_TABLA_RW = "SELECT _id, img, nom, isfem, ishum, cabel, ojos, arma, fue, vol, agi, per, res, dis, salud, aura, capa, melee, dist, dust1, dust2, semb, mod FROM rw";
-    private static final String LEER_TABLA_VO = "SELECT _id, img, nom, clase, nivadq, px, nivel, trans, tal1, tal2, isfem, stdfue, stddes, stdcon, stdint, stdsab, stdcar, modfue, moddes, modcon, modint, modsab, modcar, alerta, comun, manip, erudi, subter, superv, pvtot, pvact, def, atq, inst, mov, atqarm, danarm, traarm, nomarm, obj1, obj2, obj3 FROM vo";
+    private static final String CREAR_TABLA_CF = "CREATE TABLE cf(_id INTEGER PRIMARY KEY AUTOINCREMENT, sis TEXT, img TEXT, nom TEXT, rasfis TEXT, isfem INTEGER, cabeza INTEGER, brader TEXT, braizq TEXT, torso TEXT, piernas TEXT, based INTEGER, peld INTEGER, pelar INTEGER, res INTEGER, cond INTEGER, punt INTEGER, sigi INTEGER, mani INTEGER, arr INTEGER, ocen INTEGER, pra INTEGER, inti INTEGER, conv INTEGER, aten INTEGER, orie INTEGER, danio INTEGER, tens INTEGER)";
+    private static final String CREAR_TABLA_RW = "CREATE TABLE rw(_id INTEGER PRIMARY KEY AUTOINCREMENT, sis TEXT, img TEXT, nom TEXT, isfem INTEGER, ishum INTEGER, cabel TEXT, ojos TEXT, arma TEXT, fue INTEGER, vol INTEGER, agi INTEGER, per INTEGER, res INTEGER, dis INTEGER, salud INTEGER, aura INTEGER, capa INTEGER, melee INTEGER, dist TEXT, dust1 TEXT, dust2 TEXT, semb TEXT, mod TEXT)";
+    private static final String CREAR_TABLA_VO = "CREATE TABLE vo(_id INTEGER PRIMARY KEY AUTOINCREMENT, sis TEXT, img TEXT, nom TEXT, clase TEXT, nivadq TEXT, px INTEGER, nivel INTEGER, trans TEXT, tal1 TEXT, tal2 TEXT, isfem INTEGER, stdfue INTEGER, stddes INTEGER, stdcon INTEGER, stdint INTEGER, stdsab INTEGER, stdcar INTEGER, modfue INTEGER, moddes INTEGER, modcon INTEGER, modint INTEGER, modsab INTEGER, modcar INTEGER, alerta INTEGER, comun INTEGER, manip INTEGER, erudi INTEGER, subter INTEGER, superv INTEGER, pvtot INTEGER, pvact INTEGER, def INTEGER, atq INTEGER, inst INTEGER, mov INTEGER, atqarm INTEGER, danarm INTEGER, traarm INTEGER, nomarm TEXT, obj1 TEXT, obj2 TEXT, obj3 TEXT)";
+    private static final String LEER_TABLA_CF = "SELECT _id, sis, img, nom, rasfis, isfem, cabeza, brader, braizq, torso, piernas, based, peld, pelar, res, cond, punt, sigi, mani, arr, ocen, pra, inti, conv, aten, orie, danio, tens FROM cf";
+    private static final String LEER_TABLA_RW = "SELECT _id, sis, img, nom, isfem, ishum, cabel, ojos, arma, fue, vol, agi, per, res, dis, salud, aura, capa, melee, dist, dust1, dust2, semb, mod FROM rw";
+    private static final String LEER_TABLA_VO = "SELECT _id, sis, img, nom, clase, nivadq, px, nivel, trans, tal1, tal2, isfem, stdfue, stddes, stdcon, stdint, stdsab, stdcar, modfue, moddes, modcon, modint, modsab, modcar, alerta, comun, manip, erudi, subter, superv, pvtot, pvact, def, atq, inst, mov, atqarm, danarm, traarm, nomarm, obj1, obj2, obj3 FROM vo";
     private static final String NOMBRE_BD = "roltastico.sqlite";
     private static final int VERSION_BD = 1;
     private SQLiteDatabase bd;
@@ -46,6 +46,7 @@ public class BaseDatos extends SQLiteOpenHelper {
                            String torso, String piernas, int based, int peld, int pelar, int res, int cond, int punt, int sigi,
                            int mani, int arr, int ocen, int pra, int inti, int conv, int aten, int orie, int danio, int tens) {
         ContentValues cv = new ContentValues();
+        cv.put("sis", "Carne Fresca");
         cv.put("img", img);
         cv.put("nom", nom);
         cv.put("rasfis", rasfis);
@@ -80,6 +81,7 @@ public class BaseDatos extends SQLiteOpenHelper {
                            int agi, int per, int res, int dis, int salud, int aura, int capa, int melee, int dist, String dust1,
                            String dust2, String semb, String mod) {
         ContentValues cv = new ContentValues();
+        cv.put("sis", "Rwby");
         cv.put("img", img);
         cv.put("nom", nom);
         cv.put("isfem", isfem);
@@ -110,8 +112,9 @@ public class BaseDatos extends SQLiteOpenHelper {
                            String tal2, int isfem, int stdfue, int stddes, int stdcon, int stdint, int stdsab, int stdcar,
                            int modfue, int moddes, int modcon, int modint, int modsab, int modcar, int alerta, int comun, int manip,
                            int erudi, int subter, int superv, int pvtot, int pvact, int def, int atq, int inst, int mov, int atqarm,
-                           int danarm, int traarm, String nomarm, String obj1, String obj2, String obj3) {
+                           String danarm, int traarm, String nomarm, String obj1, String obj2, String obj3) {
         ContentValues cv = new ContentValues();
+        cv.put("sis", "Viejo Oeste");
         cv.put("img", img);
         cv.put("nom", nom);
         cv.put("clase", clase);
@@ -330,9 +333,10 @@ public class BaseDatos extends SQLiteOpenHelper {
                 //Asignar valor de las variables para crear objeto Ficha
                 String imgCF = CF.getString(CF.getColumnIndex("img"));
                 String nomCF = CF.getString(CF.getColumnIndex("nom"));
+                String atrCF = CF.getString(CF.getColumnIndex("rasfis"));
                 String sisCF = "Carne Fresca";
                 //Se añaden los atributos al objeto
-                alFicha.add(new Ficha(imgCF, nomCF, sisCF));
+                alFicha.add(new Ficha(imgCF, nomCF, sisCF, atrCF));
             } while (CF.moveToNext());
         }
         if (RW != null && RW.getCount() > 0) {
@@ -341,9 +345,10 @@ public class BaseDatos extends SQLiteOpenHelper {
                 //Asignar valor de las variables para crear objeto Ficha
                 String imgRW = RW.getString(RW.getColumnIndex("img"));
                 String nomRW = RW.getString(RW.getColumnIndex("nom"));
+                String atrRW = RW.getString(RW.getColumnIndex("cabel"));
                 String sisRW = "Rwby";
                 //Se añaden los atributos al objeto
-                alFicha.add(new Ficha(imgRW, nomRW, sisRW));
+                alFicha.add(new Ficha(imgRW, nomRW, sisRW, atrRW));
             } while (RW.moveToNext());
         }
         if (VO != null && VO.getCount() > 0) {
@@ -352,9 +357,10 @@ public class BaseDatos extends SQLiteOpenHelper {
                 //Asignar valor de las variables para crear objeto Ficha
                 String imgVO = VO.getString(VO.getColumnIndex("img"));
                 String nomVO = VO.getString(VO.getColumnIndex("nom"));
+                String atrVO = VO.getString(VO.getColumnIndex("clase"));
                 String sisVO = "Viejo Oeste";
                 //Se añaden los atributos al objeto
-                alFicha.add(new Ficha(imgVO, nomVO, sisVO));
+                alFicha.add(new Ficha(imgVO, nomVO, sisVO, atrVO));
             } while (VO.moveToNext());
         }
         //Cerrar cursor

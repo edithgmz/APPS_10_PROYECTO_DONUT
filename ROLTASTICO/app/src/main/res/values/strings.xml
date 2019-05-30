@@ -21,10 +21,11 @@
     <string name="action_editar">Editar</string>
     <string name="action_eliminar">Eliminar</string>
 
-    <string name="title_activity_rwby">Rwby</string>
-    <string name="title_activity_viejo_oeste">Viejo Oeste</string>
-    <string name="title_activity_carne_fresca">Carne Fresca</string>
-    <string name="title_activity_fichas">Fichas</string>
+    <string name="title_activity_rwby">RWBY</string>
+    <string name="title_activity_viejo_oeste">VIEJO OESTE</string>
+    <string name="title_activity_carne_fresca">CARNE FRESCA</string>
+    <string name="title_activity_fichas">FICHA</string>
+    <string name="title_activity_ficha_detalle">DETALLE</string>
 
     <string name="conducir">Conducir</string>
     <string name="punter_a">Puntería</string>

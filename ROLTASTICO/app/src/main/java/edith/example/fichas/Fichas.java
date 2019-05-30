@@ -2,8 +2,6 @@ package edith.example.fichas;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -12,7 +10,7 @@ import java.util.ArrayList;
 import edith.example.datos.BaseDatos;
 import edith.example.roltastico.R;
 
-public class Fichas extends AppCompatActivity implements ListView.OnItemClickListener {
+public class Fichas extends AppCompatActivity {
     private ListView lstVwFichas;
     //Controlador de la base de datos
     private BaseDatos baseDatos;
@@ -32,11 +30,5 @@ public class Fichas extends AppCompatActivity implements ListView.OnItemClickLis
         //Se vincula la lista, agrega el adaptador y el listener
         lstVwFichas = findViewById(R.id.lstVwFichas);
         lstVwFichas.setAdapter(new FichaAdapter(this, R.layout.layout_ficha, alFichas));
-        lstVwFichas.setOnItemClickListener(this);
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(getApplicationContext(), "Abrir Ficha", Toast.LENGTH_SHORT).show();
     }
 }

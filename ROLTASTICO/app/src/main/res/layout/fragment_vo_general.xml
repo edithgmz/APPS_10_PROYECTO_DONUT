@@ -76,7 +76,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:enabled="false"
+                        android:enabled="true"
                         android:hint="1"
                         android:inputType="number"
                         android:textAlignment="center" />

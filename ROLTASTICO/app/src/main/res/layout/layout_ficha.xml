@@ -37,6 +37,15 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/txtVwAtr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Atributo"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                android:textStyle="italic" />
+
+            <TextView
                 android:id="@+id/txtVwSis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

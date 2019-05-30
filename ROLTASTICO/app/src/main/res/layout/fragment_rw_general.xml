@@ -206,7 +206,7 @@
                         android:textSize="14sp" />
 
                     <EditText
-                        android:id="@+id/edtTxtRwDesc"
+                        android:id="@+id/edtTxtRwArma"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"

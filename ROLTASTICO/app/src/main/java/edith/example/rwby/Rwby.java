@@ -18,20 +18,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionMenu;
 import com.kosalgeek.android.photoutil.GalleryPhoto;
 import com.kosalgeek.android.photoutil.ImageLoader;
 
-import edith.example.datos.RWDatos;
 import java.io.FileNotFoundException;
 
 import edith.example.datos.BaseDatos;
+import edith.example.datos.RWDatos;
 import edith.example.roltastico.Dado;
 import edith.example.roltastico.R;
 
@@ -58,6 +59,17 @@ public class Rwby extends AppCompatActivity {
     private static Bitmap bRWImagen;
     //general
     private static ImageView imgVwRwPer;
+    private static EditText edtTxtRwNom, edtTxtRwOjos, edtTxtRwCabe, edtTxtRwArma;
+    private static RadioButton rdBtnRwFem, rdBtnRwMasc, rdBtnHuma, rdBtnFau;
+    //rasgos
+    private static Spinner spMel, spnRan, spnStr, spnEnd, spnPer, spnDis, spnAgi, spnWil;
+    private static TextView txtMel, txtRan, txtSal, txtAu, txtCap;
+    private static EditText edtTxtRwSal, edtTxtRwAur, edtTxtRwCap;
+    //dust
+    private static RadioButton rdBtnBlack, rdBtnBrown, rdBtnRed, rdBtnOrange, rdBtnYellow, rdBtnGreen,
+            rdBtnBlue, rdBtnViolet, rdBtnPink, rdBtnWhite;
+    //ventaja
+    private static EditText edtTxtSem, edtTxtRwMod1, edtTxtRwMod2, edtTxtRwMod3, edtTxtRwMod4, edtTxtRwMod5;
     //
     private GalleryPhoto gpGaleria;
     private String sRutaImagen;
@@ -121,7 +133,6 @@ public class Rwby extends AppCompatActivity {
         }
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -135,16 +146,48 @@ public class Rwby extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        int isfem, ishum;
+        String dust1 = "";
+        String dust2 = "";
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.acRwGuardar) {
-            baseDatos.insertarRW("", "Marina Joyce", 1, 0, "Rubio", "Verde", "Tridente",
-                    3, 2, 2, 1, 3, 1, 100, 5, 3, 2, 1, "Amarillo",
-                    "Rosa", "Clones de sombra", "Artes marciales");
+            if (rdBtnRwFem.isChecked())
+                isfem = 1;
+            else
+                isfem = 0;
+            if (rdBtnHuma.isChecked())
+                ishum = 1;
+            else
+                ishum = 0;
+            if (rdBtnBlack.isChecked())
+                dust1 = "Negro";
+            else if (rdBtnBrown.isChecked())
+                dust1 = "Café";
+            else if (rdBtnRed.isChecked())
+                dust1 = "Rojo";
+            else if (rdBtnOrange.isChecked())
+                dust1 = "Naranja";
+            else if (rdBtnYellow.isChecked())
+                dust1 = "Amarillo";
+            if (rdBtnGreen.isChecked())
+                dust1 = "Verde";
+            else if (rdBtnBlue.isChecked())
+                dust1 = "Azul";
+            else if (rdBtnViolet.isChecked())
+                dust1 = "Morado";
+            else if (rdBtnPink.isChecked())
+                dust1 = "Rosa";
+            else if (rdBtnWhite.isChecked())
+                dust1 = "Blanco";
+            baseDatos.insertarRW(sRutaImagen, edtTxtRwNom.getText().toString(), isfem, ishum, edtTxtRwCabe.getText().toString(), edtTxtRwOjos.getText().toString(), edtTxtRwArma.getText().toString(),
+                    3, 2, 2, 1, 3, 1, 100, 5, 3, 2, 1, dust1,
+                    dust2, edtTxtSem.getText().toString(), edtTxtRwMod1.getText().toString() + "," + edtTxtRwMod2.getText().toString() + "," + edtTxtRwMod3.getText().toString() + "," + edtTxtRwMod4.getText().toString() + "," + edtTxtRwMod5.getText().toString());
             Toast.makeText(this, "Guardado.", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.acRwEliminar) {
-            Toast.makeText(this, "Eliminar.", Toast.LENGTH_SHORT).show();
+            baseDatos.eliminarCF(edtTxtRwNom.getText().toString(), edtTxtRwCabe.getText().toString());
+            Toast.makeText(this, "Eliminado.", Toast.LENGTH_SHORT).show();
             return true;
         }
 
@@ -201,24 +244,35 @@ public class Rwby extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = null;
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
-                case 1:
+                case 1://general
                     rootView = inflater.inflate(R.layout.fragment_rw_general, container, false);
                     imgVwRwPer = rootView.findViewById(R.id.imgVwRwPer);
+                    edtTxtRwNom = rootView.findViewById(R.id.edtTxtRwNom);
+                    edtTxtRwOjos = rootView.findViewById(R.id.edtTxtRwOjos);
+                    edtTxtRwCabe = rootView.findViewById(R.id.edtTxtRwCabe);
+                    edtTxtRwArma = rootView.findViewById(R.id.edtTxtRwArma);
+                    rdBtnRwFem = rootView.findViewById(R.id.rdBtnRwFem);
+                    rdBtnRwMasc = rootView.findViewById(R.id.rdBtnRwMasc);
+                    rdBtnHuma = rootView.findViewById(R.id.rdBtnHuma);
+                    rdBtnFau = rootView.findViewById(R.id.rdBtnFau);
                     break;
                 case 2:
                     rootView = inflater.inflate(R.layout.fragment_rw_rasgos, container, false);
-                    Spinner spMel = rootView.findViewById(R.id.spMelee);
-                    final TextView txtMel = rootView.findViewById(R.id.txtRwMel);
-                    final TextView txtRan = rootView.findViewById(R.id.txtRwRan);
-                    final Spinner spnStr = rootView.findViewById(R.id.spRwFue);
-                    final Spinner spnEnd = rootView.findViewById(R.id.spRwRes);
-                    Spinner spnPer = rootView.findViewById(R.id.spRwPer);
-                    final Spinner spnDis = rootView.findViewById(R.id.spRwDis);
-                    final Spinner spnAgi = rootView.findViewById(R.id.spRwAgi);
-                    Spinner spnRan = rootView.findViewById(R.id.spRanged);
-                    final Spinner spnWil = rootView.findViewById(R.id.spRwVol);
+                    spMel = rootView.findViewById(R.id.spMelee);
+                    txtMel = rootView.findViewById(R.id.txtRwMel);
+                    txtRan = rootView.findViewById(R.id.txtRwRan);
+                    spnStr = rootView.findViewById(R.id.spRwFue);
+                    spnEnd = rootView.findViewById(R.id.spRwRes);
+                    spnPer = rootView.findViewById(R.id.spRwPer);
+                    spnDis = rootView.findViewById(R.id.spRwDis);
+                    spnAgi = rootView.findViewById(R.id.spRwAgi);
+                    spnRan = rootView.findViewById(R.id.spRanged);
+                    spnWil = rootView.findViewById(R.id.spRwVol);
+                    edtTxtRwSal = rootView.findViewById(R.id.edtTxtRwSal);
+                    edtTxtRwAur = rootView.findViewById(R.id.edtTxtRwAur);
+                    edtTxtRwCap = rootView.findViewById(R.id.edtTxtRwCap);
                     //resistencia genera campos
-                    final TextView txtSal = rootView.findViewById(R.id.txtRwSalMax);
+                    txtSal = rootView.findViewById(R.id.txtRwSalMax);
                     spnEnd.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -232,7 +286,7 @@ public class Rwby extends AppCompatActivity {
                     });
                     //per genera aura
 
-                    final TextView txtAu = rootView.findViewById(R.id.txtRwAurMax);
+                    txtAu = rootView.findViewById(R.id.txtRwAurMax);
                     spnPer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -245,7 +299,7 @@ public class Rwby extends AppCompatActivity {
                         }
                     });
 
-                    final TextView txtCap = rootView.findViewById(R.id.txtRwCapMax);
+                    txtCap = rootView.findViewById(R.id.txtRwCapMax);
                     spnDis.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -258,28 +312,28 @@ public class Rwby extends AppCompatActivity {
                         }
                     });
                     mele = new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        int res =-1;
-                        switch (position){
-                            case 0:
-                                res = spnStr.getSelectedItemPosition()+spnEnd.getSelectedItemPosition();
-                                break;
-                            case 1:
-                                res = spnStr.getSelectedItemPosition()+spnAgi.getSelectedItemPosition();
-                                break;
-                            case 2:
-                                res = spnStr.getSelectedItemPosition()+spnDis.getSelectedItemPosition();
-                                break;
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            int res = -1;
+                            switch (position) {
+                                case 0:
+                                    res = spnStr.getSelectedItemPosition() + spnEnd.getSelectedItemPosition();
+                                    break;
+                                case 1:
+                                    res = spnStr.getSelectedItemPosition() + spnAgi.getSelectedItemPosition();
+                                    break;
+                                case 2:
+                                    res = spnStr.getSelectedItemPosition() + spnDis.getSelectedItemPosition();
+                                    break;
+                            }
+                            txtMel.setText(res + "");
                         }
-                        txtMel.setText(res+"");
-                    }
 
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
 
-                    }
-                };
+                        }
+                    };
                     spMel.setOnItemSelectedListener(mele);
 
                     spnRan.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -310,9 +364,25 @@ public class Rwby extends AppCompatActivity {
                     break;
                 case 3:
                     rootView = inflater.inflate(R.layout.fragment_rw_dust, container, false);
+                    rdBtnBlack = rootView.findViewById(R.id.rdBtnBlack);
+                    rdBtnBrown = rootView.findViewById(R.id.rdBtnBrown);
+                    rdBtnRed = rootView.findViewById(R.id.rdBtnRed);
+                    rdBtnOrange = rootView.findViewById(R.id.rdBtnOrange);
+                    rdBtnYellow = rootView.findViewById(R.id.rdBtnYellow);
+                    rdBtnGreen = rootView.findViewById(R.id.rdBtnGreen);
+                    rdBtnBlue = rootView.findViewById(R.id.rdBtnBlue);
+                    rdBtnViolet = rootView.findViewById(R.id.rdBtnViolet);
+                    rdBtnPink = rootView.findViewById(R.id.rdBtnPink);
+                    rdBtnWhite = rootView.findViewById(R.id.rdBtnWhite);
                     break;
                 case 4:
                     rootView = inflater.inflate(R.layout.fragment_rw_ventaja, container, false);
+                    edtTxtSem = rootView.findViewById(R.id.edtTxtSem);
+                    edtTxtRwMod1 = rootView.findViewById(R.id.edtTxtRwMod1);
+                    edtTxtRwMod2 = rootView.findViewById(R.id.edtTxtRwMod2);
+                    edtTxtRwMod3 = rootView.findViewById(R.id.edtTxtRwMod3);
+                    edtTxtRwMod4 = rootView.findViewById(R.id.edtTxtRwMod4);
+                    edtTxtRwMod5 = rootView.findViewById(R.id.edtTxtRwMod5);
                     break;
             }
             return rootView;

@@ -7,11 +7,21 @@ public class Ficha {
     private String img;
     private String nom;
     private String sis;
+    private String atr;
 
-    public Ficha(String img, String nom, String sis) {
+    public Ficha(String img, String nom, String sis, String atr) {
         this.img = img;
         this.nom = nom;
         this.sis = sis;
+        this.atr = atr;
+    }
+
+    public String getAtr() {
+        return atr;
+    }
+
+    public void setAtr(String atr) {
+        this.atr = atr;
     }
 
     public String getImg() {

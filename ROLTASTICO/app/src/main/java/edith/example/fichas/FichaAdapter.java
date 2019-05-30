@@ -40,7 +40,7 @@ public class FichaAdapter extends ArrayAdapter<Ficha> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         ImageView imgVwPer;
-        TextView txtVwNom, txtVwSis;
+        TextView txtVwNom, txtVwSis, txtVwAtr;
         View vwLayFicha = convertView;
 
         //Si el layout no existe lo crea
@@ -53,6 +53,7 @@ public class FichaAdapter extends ArrayAdapter<Ficha> {
         imgVwPer = vwLayFicha.findViewById(R.id.imgVwPer);
         txtVwNom = vwLayFicha.findViewById(R.id.txtVwNom);
         txtVwSis = vwLayFicha.findViewById(R.id.txtVwSis);
+        txtVwAtr = vwLayFicha.findViewById(R.id.txtVwAtr);
 
         //Crea una lista de fichas con la lista obtenida del constructor
         ArrayList<Ficha> alFicha = alFichas;
@@ -69,6 +70,7 @@ public class FichaAdapter extends ArrayAdapter<Ficha> {
                 imgVwPer.setImageResource(R.drawable.cam);
             txtVwNom.setText(alFicha.get(position).getNom());
             txtVwSis.setText(alFicha.get(position).getSis());
+            txtVwAtr.setText(alFicha.get(position).getAtr());
         }
 
         return vwLayFicha;

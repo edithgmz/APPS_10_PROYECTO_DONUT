@@ -29,8 +29,6 @@ import com.github.clans.fab.FloatingActionMenu;
 import com.kosalgeek.android.photoutil.GalleryPhoto;
 import com.kosalgeek.android.photoutil.ImageLoader;
 
-import org.w3c.dom.Text;
-
 import java.io.FileNotFoundException;
 
 import edith.example.datos.BaseDatos;
@@ -61,6 +59,65 @@ public class ViejoOeste extends AppCompatActivity {
     private static Bitmap bVOImagen;
     //general
     private static ImageView imgVwVoPer;
+    private static EditText strNombre;
+    private static Spinner strClase;
+    private static Spinner strNivAqd;
+    private static EditText iPx;
+    private static EditText iNivel;
+    private static EditText strTransfondo;
+    private static EditText strTalento1;
+    private static EditText strTalento2;
+    private static RadioButton isFem; //género
+    private static RadioButton isMas;
+
+    //estadistica
+    private static Spinner iStdFue;
+    private static Spinner iStdDes;
+    private static Spinner iStdCon;
+    private static Spinner iStdInt;
+    private static Spinner iStdSab;
+    private static Spinner iStdCar;
+
+    //modificador
+    private static Spinner iModFue;
+    private static Spinner iModDes;
+    private static Spinner iModCon;
+    private static Spinner iModInt;
+    private static Spinner iModSab;
+    private static Spinner iModCar;
+
+    //habilidades
+    private static EditText iAlerta;
+    private static EditText iComunicacion;
+    private static EditText iManipulacion;
+    private static EditText iErudicion;
+    private static EditText iSubterfugio;
+    private static EditText iSupervivencia;
+    //otros
+    private static TextView iPvTot;//14 - stdFue
+    private static EditText iPvAct; // va cambiando máximo pvTot
+    private static EditText iDef; //14 - stdDes
+    private static EditText iAtq; // 0 a 7
+    private static EditText iInst;// 0 a 11
+
+    //armas
+    private static EditText strNomArm1;
+    private static EditText iAtqArm1;
+    private static EditText iDanArm1;
+    private static EditText iTraArm1;
+    private static EditText strNomArm2;
+    private static EditText iAtqArm2;
+    private static EditText iDanArm2;
+    private static EditText iTraArm2;
+    private static EditText strNomArm3;
+    private static EditText iAtqArm3;
+    private static EditText iDanArm3;
+    private static EditText iTraArm3;
+
+    //inventario
+    private static EditText strObj1;
+    private static EditText strObj2;
+    private static EditText strObj3;
     //
     private GalleryPhoto gpGaleria;
     private String sRutaImagen;
@@ -136,13 +193,36 @@ public class ViejoOeste extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        int isfem;
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.acVoGuardar) {
+            if (isFem.isChecked())
+                isfem = 1;
+            else
+                isfem = 0;
+            baseDatos.insertarVO(sRutaImagen, strNombre.getText().toString(), strClase.getSelectedItem().toString(),
+                    strNivAqd.getSelectedItem().toString(), Integer.parseInt(iPx.getText().toString()), Integer.parseInt(iNivel.getText().toString()),
+                    strTransfondo.getText().toString(), strTalento1.getText().toString(), strTalento2.getText().toString(), isfem,
+                    Integer.parseInt(iStdFue.getSelectedItem().toString()), Integer.parseInt(iStdDes.getSelectedItem().toString()),
+                    Integer.parseInt(iStdCon.getSelectedItem().toString()), Integer.parseInt(iStdInt.getSelectedItem().toString()),
+                    Integer.parseInt(iStdSab.getSelectedItem().toString()), Integer.parseInt(iStdCar.getSelectedItem().toString()),
+                    Integer.parseInt(iModFue.getSelectedItem().toString()), Integer.parseInt(iModDes.getSelectedItem().toString()),
+                    Integer.parseInt(iModCon.getSelectedItem().toString()), Integer.parseInt(iModInt.getSelectedItem().toString()),
+                    Integer.parseInt(iModSab.getSelectedItem().toString()), Integer.parseInt(iModCar.getSelectedItem().toString()),
+                    Integer.parseInt(iAlerta.getText().toString()), Integer.parseInt(iComunicacion.getText().toString()),
+                    Integer.parseInt(iManipulacion.getText().toString()), Integer.parseInt(iErudicion.getText().toString()),
+                    Integer.parseInt(iSubterfugio.getText().toString()), Integer.parseInt(iSupervivencia.getText().toString()),
+                    Integer.parseInt(iPvTot.getText().toString()), Integer.parseInt(iPvAct.getText().toString()),
+                    Integer.parseInt(iDef.getText().toString()), Integer.parseInt(iAtq.getText().toString()), Integer.parseInt(iInst.getText().toString()),
+                    10, Integer.parseInt(iAtqArm1.getText().toString()), iDanArm1.getText().toString(),
+                    Integer.parseInt(iTraArm1.getText().toString()), strNomArm1.getText().toString(), strObj1.getText().toString(),
+                    strObj2.getText().toString(), strObj3.getText().toString());
             Toast.makeText(this, "Guardado.", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.acVoEliminar) {
-            Toast.makeText(this, "Eliminar.", Toast.LENGTH_SHORT).show();
+            baseDatos.eliminarCF(strNombre.getText().toString(), strClase.getSelectedItem().toString());
+            Toast.makeText(this, "Eliminado.", Toast.LENGTH_SHORT).show();
             return true;
         }
 
@@ -173,67 +253,6 @@ public class ViejoOeste extends AppCompatActivity {
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
-        //general
-        private static ImageView strImagen;
-        private static Spinner strNombre;
-        private static Spinner strClase;
-        private static Spinner strNivAqd;
-        private static EditText iPx;
-        private static EditText iNivel;
-        private static Spinner strTransfondo;
-        private static EditText strTalento1;
-        private static EditText strTalento2;
-        private static RadioButton isFem; //género
-        private static RadioButton isMas;
-
-        //estadistica
-        private static Spinner iStdFue;
-        private static Spinner iStdDes;
-        private static Spinner iStdCon;
-        private static Spinner iStdInt;
-        private static Spinner iStdSab;
-        private static Spinner iStdCar;
-
-        //modificador
-        private static Spinner iModFue;
-        private static Spinner iModDes;
-        private static Spinner iModCon;
-        private static Spinner iModInt;
-        private static Spinner iModSab;
-        private static Spinner iModCar;
-
-        //habilidades
-        private static EditText iAlerta;
-        private static EditText iComunicacion;
-        private static EditText iManipulacion;
-        private static EditText iErudicion;
-        private static EditText iSubterfugio;
-        private static EditText iSupervivencia;
-        //otros
-        private static EditText iPvTot;//14 - stdFue
-        private static EditText iPvAct; // va cambiando máximo pvTot
-        private static EditText iDef; //14 - stdDes
-        private static EditText iAtq; // 0 a 7
-        private static EditText iInst;// 0 a 11
-
-        //armas
-        private static EditText strNomArm1;
-        private static EditText iAtqArm1;
-        private static EditText iDanArm1;
-        private static EditText iTraArm1;
-        private static EditText strNomArm2;
-        private static EditText iAtqArm2;
-        private static EditText iDanArm2;
-        private static EditText iTraArm2;
-        private static EditText strNomArm3;
-        private static EditText iAtqArm3;
-        private static EditText iDanArm3;
-        private static EditText iTraArm3;
-
-        //inventario
-        private static EditText strObj1;
-        private static EditText strObj2;
-        private static EditText strObj3;
         /**
          * The fragment argument representing the section number for this
          * fragment.
@@ -267,7 +286,7 @@ public class ViejoOeste extends AppCompatActivity {
                     strClase  =rootView.findViewById(R.id.spVoClase);
                     strNivAqd =rootView.findViewById(R.id.spVoNivAdq);
                     iPx=rootView.findViewById(R.id.edtTxtVoPx);
-                    iNivel=rootView.findViewById(R.id.spVoNivAdq);
+                    iNivel = rootView.findViewById(R.id.edtTxtVoLvl);
                     strTransfondo=rootView.findViewById(R.id.edtTxtVoTrans);
                     strTalento1=rootView.findViewById(R.id.edtTxtVoTal1);
                     strTalento2=rootView.findViewById(R.id.edtTxtVoTal2);
