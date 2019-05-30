@@ -18,7 +18,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +39,8 @@ import edith.example.roltastico.R;
 
 public class ViejoOeste extends AppCompatActivity {
     FloatingActionMenu menuFVO;
+
+
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -169,6 +173,67 @@ public class ViejoOeste extends AppCompatActivity {
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
+        //general
+        private static ImageView strImagen;
+        private static Spinner strNombre;
+        private static Spinner strClase;
+        private static Spinner strNivAqd;
+        private static EditText iPx;
+        private static EditText iNivel;
+        private static Spinner strTransfondo;
+        private static EditText strTalento1;
+        private static EditText strTalento2;
+        private static RadioButton isFem; //género
+        private static RadioButton isMas;
+
+        //estadistica
+        private static Spinner iStdFue;
+        private static Spinner iStdDes;
+        private static Spinner iStdCon;
+        private static Spinner iStdInt;
+        private static Spinner iStdSab;
+        private static Spinner iStdCar;
+
+        //modificador
+        private static Spinner iModFue;
+        private static Spinner iModDes;
+        private static Spinner iModCon;
+        private static Spinner iModInt;
+        private static Spinner iModSab;
+        private static Spinner iModCar;
+
+        //habilidades
+        private static EditText iAlerta;
+        private static EditText iComunicacion;
+        private static EditText iManipulacion;
+        private static EditText iErudicion;
+        private static EditText iSubterfugio;
+        private static EditText iSupervivencia;
+        //otros
+        private static EditText iPvTot;//14 - stdFue
+        private static EditText iPvAct; // va cambiando máximo pvTot
+        private static EditText iDef; //14 - stdDes
+        private static EditText iAtq; // 0 a 7
+        private static EditText iInst;// 0 a 11
+
+        //armas
+        private static EditText strNomArm1;
+        private static EditText iAtqArm1;
+        private static EditText iDanArm1;
+        private static EditText iTraArm1;
+        private static EditText strNomArm2;
+        private static EditText iAtqArm2;
+        private static EditText iDanArm2;
+        private static EditText iTraArm2;
+        private static EditText strNomArm3;
+        private static EditText iAtqArm3;
+        private static EditText iDanArm3;
+        private static EditText iTraArm3;
+
+        //inventario
+        private static EditText strObj1;
+        private static EditText strObj2;
+        private static EditText strObj3;
         /**
          * The fragment argument representing the section number for this
          * fragment.
@@ -198,9 +263,49 @@ public class ViejoOeste extends AppCompatActivity {
                 case 1:
                     rootView = inflater.inflate(R.layout.fragment_vo_general, container, false);
                     imgVwVoPer = rootView.findViewById(R.id.imgVwVoPer);
+                    strNombre =rootView.findViewById(R.id.edtTxtVoNom);
+                    strClase  =rootView.findViewById(R.id.spVoClase);
+                    strNivAqd =rootView.findViewById(R.id.spVoNivAdq);
+                    iPx=rootView.findViewById(R.id.edtTxtVoPx);
+                    iNivel=rootView.findViewById(R.id.spVoNivAdq);
+                    strTransfondo=rootView.findViewById(R.id.edtTxtVoTrans);
+                    strTalento1=rootView.findViewById(R.id.edtTxtVoTal1);
+                    strTalento2=rootView.findViewById(R.id.edtTxtVoTal2);
+                    isFem=rootView.findViewById(R.id.rdBtnVoFem); //género (puede que se necite el btnMas
+                    isMas = rootView.findViewById(R.id.rdBtnVoMasc);
                     break;
                 case 2:
                     rootView = inflater.inflate(R.layout.fragment_vo_rasgos, container, false);
+                    //estadistica
+                    iStdFue = rootView.findViewById(R.id.spFueStd);
+                    iStdDes= rootView.findViewById(R.id.spDesStd);
+                    iStdCon = rootView.findViewById(R.id.spConStd);
+                    iStdInt = rootView.findViewById(R.id.spIntStd);
+                    iStdSab = rootView.findViewById(R.id.spSabStd);
+                    iStdCar = rootView.findViewById(R.id.spCarStd);
+
+                    //modificador
+                    iModFue = rootView.findViewById(R.id.spFueBon);
+                    iModDes = rootView.findViewById(R.id.spFueBon);
+                    iModCon = rootView.findViewById(R.id.spConBon);
+                    iModInt = rootView.findViewById(R.id.spIntBon);
+                    iModSab = rootView.findViewById(R.id.spSabBon);
+                    iModCar = rootView.findViewById(R.id.spCarBon);
+
+                    //habilidades
+                    iAlerta = rootView.findViewById(R.id.edtAlerta);
+                    iComunicacion = rootView.findViewById(R.id.edtComun);
+                    iManipulacion = rootView.findViewById(R.id.edtManip);
+                    iErudicion = rootView.findViewById(R.id.edtEru);
+                    iSubterfugio = rootView.findViewById(R.id.edtSubt);
+                    iSupervivencia = rootView.findViewById(R.id.edtSuperv);
+                    //otros
+                     iPvTot  = rootView.findViewById(R.id.edtPvTot);//14 - stdFue
+                    iPvAct = rootView.findViewById(R.id.edtPvAct); // va cambiando máximo pvTot
+                    iDef = rootView.findViewById(R.id.edtDef); //14 - stdDes
+                    iAtq = rootView.findViewById(R.id.edtAtq); // 0 a 7
+                    iInst = rootView.findViewById(R.id.edtIns);// 0 a 11
+
                     final Spinner spnDes = rootView.findViewById(R.id.spDesStd);
                     final TextView txtPvTot = rootView.findViewById(R.id.edtPvTot);
                     spnDes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -217,6 +322,25 @@ public class ViejoOeste extends AppCompatActivity {
                     break;
                 case 3:
                     rootView = inflater.inflate(R.layout.fragment_vo_items, container, false);
+                    //armas
+                    strNomArm1 = rootView.findViewById(R.id.edtTxtArm1);
+                    iAtqArm1 = rootView.findViewById(R.id.edtTxtAtq1);
+                    iDanArm1 = rootView.findViewById(R.id.edtTxtDñ1);
+                    iTraArm1 = rootView.findViewById(R.id.edtTxtTra1);
+
+                    strNomArm2 = rootView.findViewById(R.id.edtTxtArm2);
+                    iAtqArm2 = rootView.findViewById(R.id.edtTxtAtq2);
+                    iDanArm2 = rootView.findViewById(R.id.edtTxtDñ2);
+                    iTraArm2 = rootView.findViewById(R.id.edtTxtTra2);
+
+                    strNomArm3 = rootView.findViewById(R.id.edtTxtArm3);
+                    iAtqArm3 = rootView.findViewById(R.id.edtTxtAtq3);
+                    iDanArm3 = rootView.findViewById(R.id.edtTxtDñ3);
+                    iTraArm3 = rootView.findViewById(R.id.edtTxtTra3);
+                    //inventario
+                    strObj1 = rootView.findViewById(R.id.edtObj1);
+                    strObj2 = rootView.findViewById(R.id.edtObj2);
+                    strObj3 = rootView.findViewById(R.id.edtObj3);
                     break;
             }
             return rootView;
